@@ -1,0 +1,1 @@
+export { MineralPage } from './ui';

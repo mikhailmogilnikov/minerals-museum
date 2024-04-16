@@ -1,0 +1,48 @@
+export const MineralsData = [
+  {
+    id: 0,
+    name: 'Флюорит',
+    descrtiption: '',
+    tags: [],
+    specs: [],
+    model: '',
+    img: '',
+  },
+  {
+    id: 1,
+    name: 'Арагонит',
+    descrtiption: '',
+    tags: [],
+    specs: [],
+    model: '',
+    img: '',
+  },
+  {
+    id: 2,
+    name: 'Перит',
+    descrtiption: '',
+    tags: [],
+    specs: [],
+    model: '',
+    img: '',
+  },
+  {
+    id: 3,
+    name: 'Аметист',
+    descrtiption: '',
+    tags: [],
+    specs: [],
+    model:
+      'https://drive.google.com/file/d/1rSmC3q5Y2czY1gHSm2wlg74j98RkMsNz/view?usp=drive_open',
+    img: '',
+  },
+  {
+    id: 4,
+    name: 'Халцедон',
+    descrtiption: '',
+    tags: [],
+    specs: [],
+    model: '',
+    img: '',
+  },
+];
