@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 
 import { dir } from 'i18next';
+import { Viewport } from 'next';
 import { Inter } from 'next/font/google';
+import { NavigateBackButton } from '@/features/navigate-to-back';
 import { useTranslation } from '@/shared/i18n';
 import { fallbackLng, languages } from '@/shared/i18n/settings';
 import './globals.css';
@@ -32,11 +34,24 @@ export async function generateMetadata({ params: { lng } }: MetadataProps) {
   };
 }
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 export default function RootLayout({ children, params: { lng } }: PageProps) {
   return (
     <html suppressHydrationWarning className='dark' lang={lng} dir={dir(lng)}>
+      <head>
+        <meta name='theme-color' content='#000000' />
+      </head>
       <body className={inter.className}>
-        <Providers lng={lng}>{children}</Providers>
+        <Providers lng={lng}>
+          <NavigateBackButton />
+          {children}
+        </Providers>
       </body>
     </html>
   );

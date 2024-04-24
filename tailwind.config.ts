@@ -33,7 +33,7 @@ const config: Config = {
         light: {
           colors: {
             default: {
-              DEFAULT: 'rgb(244, 244, 245)',
+              DEFAULT: '#ffffff',
               foreground: '#000000',
             },
             primary: {
@@ -58,7 +58,7 @@ const config: Config = {
         dark: {
           colors: {
             default: {
-              DEFAULT: 'rgb(39, 39, 42)',
+              DEFAULT: 'rgb(31, 31, 31)',
               foreground: '#ffffff',
             },
             primary: {

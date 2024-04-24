@@ -1,0 +1,1 @@
+export { CategoryCarousel } from './ui';

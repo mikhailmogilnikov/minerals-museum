@@ -1,0 +1,1 @@
+export { MineralsList } from './ui';

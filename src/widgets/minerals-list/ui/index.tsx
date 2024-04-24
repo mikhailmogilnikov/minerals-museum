@@ -1,0 +1,18 @@
+import { MineralType } from '@/shared/model/mineral.type';
+import { Card } from '@/shared/ui/card';
+
+type Props = {
+  list: MineralType[];
+};
+
+export const MineralsList = ({ list }: Props) => {
+  return (
+    <div className='w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-8'>
+      {list.map(({ name, id, img }) => (
+        <div key={id} className='w-full aspect-[4/5]'>
+          <Card title={name} img={img} path={`/minerals/${id}`} />
+        </div>
+      ))}
+    </div>
+  );
+};

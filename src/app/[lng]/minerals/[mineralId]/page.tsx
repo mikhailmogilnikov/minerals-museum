@@ -1,9 +1,9 @@
 import { MineralPage } from '@/page/mineral';
 
 type Props = {
-  params: { lng: string };
+  params: { mineralId: string };
 };
 
-export default async function Mineral({ params: { lng } }: Props) {
-  return <MineralPage lng={lng} />;
+export default function Mineral({ params: { mineralId } }: Props) {
+  return <MineralPage mineralId={mineralId} />;
 }

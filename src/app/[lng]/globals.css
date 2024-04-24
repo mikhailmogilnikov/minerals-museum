@@ -2,13 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .shadow-base {
+    box-shadow: 2px 4px 12px #00000014;
+  }
+  .shadow-hover {
+    box-shadow: 2px 4px 16px #00000029;
+  }
+}
+
 :root {
   --text: #000000;
   --inv-text: #ffffff;
   --accent: rgb(0, 82, 204);
-  --bg: #eeeeee;
+  --bg: #f5f5f7;
   --bg-light: #ffffff;
   --scrollbar: #c0c0c0;
+  --element: #ffffff;
   --element-hover: rgb(241, 241, 241);
 }
 
@@ -26,7 +36,8 @@
 html,
 body {
   color: var(--text);
-  background: var(--bg);
+  background-color: var(--bg) !important;
+  user-select: none;
 }
 
 body {
@@ -39,6 +50,11 @@ body {
   -webkit-tap-highlight-color: transparent;
   display: flex;
   justify-items: center;
+  overflow-x: hidden;
+}
+
+[data-overlay-container] {
+  width: 100%;
 }
 
 h1,
@@ -68,7 +84,7 @@ p {
 
 /* Scrollbar for WebKit (Chrome, Safari) */
 
-*::-webkit-scrollbar {
+/* *::-webkit-scrollbar {
   width: 6px;
 }
 
@@ -79,7 +95,7 @@ p {
 
 *::-webkit-scrollbar-track {
   background-color: transparent;
-}
+} */
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,

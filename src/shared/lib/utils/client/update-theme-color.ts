@@ -3,14 +3,13 @@
 
 export const updateThemeColor = (resolvedTheme: string) => {
   const themeColorMeta = document.querySelector('meta[name="theme-color"]');
-  console.log(themeColorMeta);
 
   if (themeColorMeta) {
     if (resolvedTheme === 'dark') {
       themeColorMeta.setAttribute('content', 'black');
     }
     if (resolvedTheme === 'light') {
-      themeColorMeta.setAttribute('content', '#fffffe');
+      themeColorMeta.setAttribute('content', '#f5f5f7');
     }
   }
 };

@@ -1,0 +1,58 @@
+.carousel {
+  height: 100%;
+  --swiper-navigation-size: 26px;
+  --swiper-navigation-color: var(--text);
+  --swiper-navigation-top-offset: 45%;
+}
+
+.carousel.category {
+  width: calc(100vw - 8px);
+}
+
+.carousel.mineral {
+  width: calc(50vw);
+}
+
+.carousel .swiper-slide {
+  width: min-content;
+  padding: 15px;
+}
+
+.carousel.category .swiper-slide:first-child {
+  padding-left: 96px;
+}
+
+.carousel.category .swiper-slide:last-child {
+  padding-right: 96px;
+}
+
+.carousel.mineral .swiper-slide:first-child {
+  padding-left: 40px;
+}
+
+.carousel.mineral .swiper-slide:last-child {
+  padding-right: 40px;
+}
+
+.carousel .swiper-button-prev,
+.carousel .swiper-button-next {
+  width: 50px;
+  height: 50px;
+  border-radius: 999px;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  transition: opacity 0.2s linear;
+}
+
+.carousel .swiper-button-prev {
+  padding-right: 3px;
+}
+
+.carousel .swiper-button-next {
+  padding-left: 3px;
+}
+
+.swiper-button-disabled {
+  opacity: 0 !important;
+  transition: opacity 0.2s linear;
+}
