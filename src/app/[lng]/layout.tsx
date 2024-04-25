@@ -2,6 +2,7 @@
 
 import { dir } from 'i18next';
 import { Viewport } from 'next';
+import dynamic from 'next/dynamic';
 import { Inter } from 'next/font/google';
 import { NavigateBackButton } from '@/features/navigate-to-back';
 import { useTranslation } from '@/shared/i18n';
@@ -41,6 +42,10 @@ export const viewport: Viewport = {
   userScalable: false,
 };
 
+const DynamicBottomBar = dynamic(() =>
+  import('@/widgets/bottom-bar').then((mod) => mod.BottomBar),
+);
+
 export default function RootLayout({ children, params: { lng } }: PageProps) {
   return (
     <html suppressHydrationWarning className='dark' lang={lng} dir={dir(lng)}>
@@ -51,6 +56,7 @@ export default function RootLayout({ children, params: { lng } }: PageProps) {
         <Providers lng={lng}>
           <NavigateBackButton />
           {children}
+          <DynamicBottomBar />
         </Providers>
       </body>
     </html>

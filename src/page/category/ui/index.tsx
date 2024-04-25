@@ -16,7 +16,7 @@ export const CategoryPage = ({ lng, categoryId }: Props) => {
   );
 
   return (
-    <main className='w-full min-h-screen flex flex-col gap-12 p-4 sm:p-6 md:p-12 lg:p-24'>
+    <main className='w-full min-h-screen flex flex-col gap-12 p-4 sm:p-6 md:p-12 lg:p-24 !pb-32'>
       <div className='flex flex-col gap-4'>
         <h1 className='text-[32px] sm:text-[40px] md:text-[50px] lg:text-[60px] font-bold'>
           {category?.name}
