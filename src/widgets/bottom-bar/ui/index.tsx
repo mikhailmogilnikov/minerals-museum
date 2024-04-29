@@ -22,7 +22,7 @@ export const BottomBar = () => {
           initial={{ opacity: 0, filter: 'blur(24px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
           exit={{ opacity: 0, filter: 'blur(24px)' }}
-          className='fixed max-md:left-6 md:w-fit bottom-6 right-6 md:bottom-10 md:right-10 z-50 flex gap-4 origin-bottom-right'
+          className='fixed max-sm:left-6 md:w-fit bottom-6 right-6 md:bottom-10 md:right-10 z-50 flex gap-4 origin-bottom-right'
         >
           <SearchButton />
           <MenuButton />

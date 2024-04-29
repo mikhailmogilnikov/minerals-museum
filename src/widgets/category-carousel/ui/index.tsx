@@ -10,10 +10,10 @@ type Props = {
 
 export const CategoryCarousel = ({ category, collection }: Props) => {
   return (
-    <div className='w-screen flex flex-col gap-3 col-span-2 -ml-4 lg:-ml-24'>
+    <div className='w-screen flex flex-col gap-3 col-span-2 -ml-4 sm:-ml-6 xl:-ml-24'>
       <Link
         href={`/category/${category.id}`}
-        className='w-full flex justify-between items-center px-4 sm:px-6 md:px-12 lg:px-24'
+        className='w-full flex justify-between items-center px-4 sm:px-6 xl:px-24'
       >
         <h3 className='text-xl md:text-2xl font-semibold'>{category.name}</h3>
         <button

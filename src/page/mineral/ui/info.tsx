@@ -46,7 +46,7 @@ export const MineralInfo = ({ mineral }: Props) => {
       {similarMinerals.length > 0 && (
         <div className='w-full flex flex-col gap-4 mt-6 -ml-4 md:-ml-10'>
           <h3 className='text-xl font-semibold pl-4 md:pl-10'>
-            Похожие минералы
+            Похожее
           </h3>
           <Carousel
             collection={similarMinerals as MineralType[]}

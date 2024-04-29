@@ -26,7 +26,7 @@ export const Carousel = ({ collection, className }: Props) => {
     >
       {collection.map((mineral) => (
         <SwiperSlide key={mineral.id} className='w-56 h-72 flex-shrink-0'>
-          <div className='w-40 aspect-[4/5] md:w-56 flex-shrink-0'>
+          <div className='w-40 sm:w-48 aspect-[4/5] md:w-56 flex-shrink-0'>
             <Card
               key={mineral.id}
               title={mineral.name}

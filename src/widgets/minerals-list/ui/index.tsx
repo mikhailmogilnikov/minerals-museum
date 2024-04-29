@@ -7,7 +7,7 @@ type Props = {
 
 export const MineralsList = ({ list }: Props) => {
   return (
-    <div className='w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-4 md:gap-8'>
+    <div className='w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-4 md:gap-8'>
       {list.map(({ name, id, img }) => (
         <div key={id} className='w-full aspect-[4/5]'>
           <Card title={name} img={img} path={`/minerals/${id}`} />

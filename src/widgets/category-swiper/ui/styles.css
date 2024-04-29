@@ -10,7 +10,7 @@
   transform: translateY(20px) translateX(-50%) !important;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .swiper-pagination-bullets {
     transform: translateY(24px) translateX(-64%) !important;
   }

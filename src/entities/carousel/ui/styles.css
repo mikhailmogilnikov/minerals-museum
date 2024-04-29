@@ -39,6 +39,16 @@
   }
 
   .carousel .swiper-slide:first-child {
+    padding-left: 24px;
+  }
+
+  .carousel .swiper-slide:last-child {
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .carousel .swiper-slide:first-child {
     padding-left: 96px;
   }
 

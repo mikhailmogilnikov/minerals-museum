@@ -12,10 +12,10 @@ export const CategoryCard = ({ category, collection }: Props) => {
     <Link href={`/category/${category.id}`}>
       <button
         type='button'
-        className='w-full aspect-[5/4] md:aspect-[16/10] bg-[--element] rounded-3xl md:rounded-4xl shadow-base hover:scale-[1.02] hover:shadow-hover active:scale-[0.98] active:shadow-none relative transition-all overflow-clip max-md:pt-4'
+        className='w-full aspect-[5/4] max-h-[90vh] md:aspect-[16/10] bg-[--element] rounded-3xl md:rounded-4xl shadow-base hover:scale-[1.02] hover:shadow-hover active:scale-[0.98] active:shadow-none relative transition-all overflow-clip max-md:pt-4'
       >
-        <div className='absolute top-6 left-6 md:top-8 md:left-8 flex flex-col'>
-          <h3 className='text-xl md:text-2xl font-semibold'>{category.name}</h3>
+        <div className='absolute top-6 left-6 xl:top-8 xl:left-8 flex flex-col'>
+          <h3 className='text-xl xl:text-2xl font-semibold'>{category.name}</h3>
         </div>
         <CardGallery category={category} collection={collection} />
       </button>
