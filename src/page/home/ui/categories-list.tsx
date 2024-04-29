@@ -1,46 +1,11 @@
-import { CategoryCard } from '@/widgets/category-card';
-import { CategoryCarousel } from '@/widgets/category-carousel';
-import { CategorySwiper } from '@/widgets/category-swiper';
-import { Categories, MineralsData } from '@/shared/api/minerals-data';
-import { sortCategories } from '@/shared/lib/utils/sort-categories';
+'use client';
+
+import { useMedia } from 'react-use';
+import { CategoriesListDesktop } from './categories-list-desktop';
+import { CategoriesListMobile } from './categories-list-mobile';
 
 export const CategoriesList = () => {
-  const categoriesList = sortCategories(Categories, MineralsData);
+  const isMobile = useMedia('(max-width: 767px)', false);
 
-  return (
-    <div className='w-full grid grid-cols-2 gap-14'>
-      {categoriesList.map((category, index) => {
-        const collection = MineralsData.filter(({ categories }) =>
-          categories.includes(category.id),
-        );
-
-        switch (index % 4) {
-          case 2:
-            return (
-              <CategoryCarousel
-                key={category.id}
-                category={category}
-                collection={collection}
-              />
-            );
-          case 3:
-            return (
-              <CategorySwiper
-                key={category.id}
-                category={category}
-                collection={collection}
-              />
-            );
-          default:
-            return (
-              <CategoryCard
-                key={category.id}
-                category={category}
-                collection={collection}
-              />
-            );
-        }
-      })}
-    </div>
-  );
+  return isMobile ? <CategoriesListMobile /> : <CategoriesListDesktop />;
 };

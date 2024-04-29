@@ -1,11 +1,5 @@
 import { CircularProgress } from '@nextui-org/progress';
-import {
-  Center,
-  Loader,
-  OrbitControls,
-  Resize,
-  useProgress,
-} from '@react-three/drei';
+import { Center, OrbitControls, Resize, useProgress } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { m } from 'framer-motion';
 import { Suspense, useEffect, useState } from 'react';
@@ -28,7 +22,7 @@ export const ThreeModelViewer = ({
   const { progress } = useProgress();
   const [autoRotateStore, setAutoRotateStore] = useLocalStorage(
     'autoRotate',
-    false,
+    true,
   );
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -49,6 +43,7 @@ export const ThreeModelViewer = ({
 
   const toggleFullscreen = () => {
     setIsExpanded(!isExpanded);
+    window.scrollTo({ top: 0 });
   };
 
   const handleClickControl = (e: any) => {
@@ -94,7 +89,7 @@ export const ThreeModelViewer = ({
           </Canvas>
         </m.div>
       </Suspense>
-      <Loader />
+
       <ThreeControls
         isAutoRotate={autoRotate as boolean}
         isFullscreen={isExpanded}

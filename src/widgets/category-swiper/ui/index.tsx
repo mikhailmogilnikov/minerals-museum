@@ -10,10 +10,10 @@ type Props = {
 
 export const CategorySwiper = ({ category, collection }: Props) => {
   return (
-    <div className='w-full flex justify-between gap-24 col-span-2 mb-10'>
+    <div className='w-full flex flex-col md:flex-row justify-between gap-8 md:gap-24 col-span-2 mb-10'>
       <div className='w-full flex flex-col justify-center gap-4'>
-        <h3 className='text-4xl font-semibold'>{category.name}</h3>
-        <h4 className='w-full text-xl font-semibold opacity-50 line-clamp-2'>
+        <h3 className='text-xl md:text-4xl font-semibold '>{category.name}</h3>
+        <h4 className='w-full text-lg md:text-xl font-semibold opacity-50 line-clamp-2'>
           {category.description}
         </h4>
 
@@ -28,7 +28,7 @@ export const CategorySwiper = ({ category, collection }: Props) => {
         </Link>
       </div>
 
-      <div className='w-1/3 aspect-square max-h-[400px] flex-shrink-0'>
+      <div className='w-[calc(100%+32px)] max-md:pl-[6%] max-md:sm:pl-[28%] max-md:-ml-4 md:w-1/3 aspect-square max-h-[400px] flex-shrink-0 max-md:overflow-x-clip'>
         <Swiper collection={collection} />
       </div>
     </div>

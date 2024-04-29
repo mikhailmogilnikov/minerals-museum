@@ -3,22 +3,21 @@
   padding: 20px;
 }
 
-/* .cards-swiper .swiper-wrapper {
-  margin-left: 30%;
-  width: 70%;
-} */
-
-/* .cards-swiper {
-  width: 288px;
-} */
-
-.cards-swiper .swiper-pagination {
-  margin-top: 16px;
-}
-
 .swiper-pagination-bullets {
   --swiper-pagination-color: var(--text);
   --swiper-theme-color: var(--text);
   --swiper-pagination-bullet-inactive-color: var(--text);
   transform: translateY(20px) translateX(-50%) !important;
+}
+
+@media (max-width: 767px) {
+  .swiper-pagination-bullets {
+    transform: translateY(24px) translateX(-64%) !important;
+  }
+
+  @media (min-width: 640px) {
+    .swiper-pagination-bullets {
+      transform: translateY(24px) translateX(-180%) !important;
+    }
+  }
 }

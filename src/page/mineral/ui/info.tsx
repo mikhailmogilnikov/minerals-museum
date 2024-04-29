@@ -12,7 +12,7 @@ export const MineralInfo = ({ mineral }: Props) => {
   const similarMinerals = findSimilar(mineral as MineralType, MineralsData);
 
   return (
-    <div className='absolute top-0 right-0 w-1/2 h-dvh flex flex-col gap-8 p-10 pb-32 overflow-y-scroll'>
+    <div className='absolute top-0 right-0 w-full lg:w-1/2 mt-[70vh] lg:mt-0 lg:h-dvh flex flex-col gap-8 p-4 md:p-10 max-md:pt-10 lg:overflow-y-scroll'>
       <h1 className='text-3xl md:text-5xl font-bold'>{mineral.name}</h1>
 
       {mineral.description && (
@@ -44,8 +44,10 @@ export const MineralInfo = ({ mineral }: Props) => {
       </div>
 
       {similarMinerals.length > 0 && (
-        <div className='w-full flex flex-col gap-4 mt-6 -ml-10'>
-          <h3 className='text-xl font-semibold pl-10'>Похожие минералы</h3>
+        <div className='w-full flex flex-col gap-4 mt-6 -ml-4 md:-ml-10'>
+          <h3 className='text-xl font-semibold pl-4 md:pl-10'>
+            Похожие минералы
+          </h3>
           <Carousel
             collection={similarMinerals as MineralType[]}
             className='mineral'

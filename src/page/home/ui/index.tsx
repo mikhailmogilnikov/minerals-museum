@@ -14,9 +14,9 @@ export const HomePage = async ({ lng }: Props) => {
   const { t } = await useTranslation(lng);
 
   return (
-    <main className='w-full min-h-screen flex flex-col gap-12 p-4 sm:p-6 md:p-12 lg:p-24 !pb-32'>
+    <main className='w-full min-h-screen flex flex-col gap-8 md:gap-12 p-4 sm:p-6 md:p-12 xl:p-24 !pb-32'>
       <div className='w-full flex justify-between items-center'>
-        <h1 className='text-[32px] sm:text-[40px] md:text-[50px] lg:text-[60px] font-bold'>
+        <h1 className='text-[24px] sm:text-[30px] md:text-[50px] lg:text-[60px] font-bold'>
           {t('title')}
         </h1>
         <MgriLogo size={60} />

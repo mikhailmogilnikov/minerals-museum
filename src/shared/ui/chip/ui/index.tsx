@@ -4,9 +4,10 @@ import { Categories } from '@/shared/api/minerals-data';
 
 type Props = {
   categoryId: number;
+  onPress?: () => void;
 };
 
-export const Chip = ({ categoryId }: Props) => {
+export const Chip = ({ categoryId, onPress }: Props) => {
   const category = Categories.find(
     (currCategory) => currCategory.id === categoryId,
   );
@@ -17,6 +18,7 @@ export const Chip = ({ categoryId }: Props) => {
       as={Link}
       size='sm'
       radius='full'
+      onPress={onPress}
       className='w-min text-sm font-medium shadow-base'
     >
       {category?.name}

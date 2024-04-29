@@ -8,6 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'max-md': { max: '767px' },
+        'max-lg': { max: '1023px' },
+      },
       borderRadius: {
         '4xl': '2rem',
       },
@@ -52,7 +56,7 @@ const config: Config = {
               DEFAULT: 'rgb(58, 171, 64)',
               foreground: 'white',
             },
-            focus: 'rgb(0, 82, 204)',
+            focus: '#ddd',
           },
         },
         dark: {
@@ -78,7 +82,7 @@ const config: Config = {
               DEFAULT: 'rgb(58, 171, 64)',
               foreground: 'white',
             },
-            focus: 'white',
+            focus: '#333',
           },
         },
       },

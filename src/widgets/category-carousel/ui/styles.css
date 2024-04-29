@@ -12,11 +12,21 @@
 }
 
 .carousel .swiper-slide:first-child {
-  padding-left: 96px;
+  padding-left: 16px;
 }
 
 .carousel .swiper-slide:last-child {
-  padding-right: 96px;
+  padding-right: 16px;
+}
+
+@media (min-width: 768px) {
+  .carousel .swiper-slide:first-child {
+    padding-left: 96px;
+  }
+
+  .carousel .swiper-slide:last-child {
+    padding-right: 96px;
+  }
 }
 
 .carousel .swiper-button-prev,

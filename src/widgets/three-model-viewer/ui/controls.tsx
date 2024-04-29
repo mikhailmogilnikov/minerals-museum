@@ -15,7 +15,7 @@ export const ThreeControls = ({
   handleClickControl,
 }: Props) => {
   return (
-    <div className='absolute right-3 md:left-3 bottom-3 flex flex-row gap-3'>
+    <div className='absolute max-lg:right-3 lg:left-3 bottom-3 flex flex-row gap-3'>
       <Tooltip content='Автоповорот'>
         <Button
           id='rotate'

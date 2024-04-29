@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
+
 import { useState, useEffect } from 'react';
 
 export const useScrollDirection = () => {
