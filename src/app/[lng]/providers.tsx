@@ -4,6 +4,7 @@ import { NextUIProvider } from '@nextui-org/react';
 import { LazyMotion as FramerMotionProvider, domMax } from 'framer-motion';
 import { ThemeProvider } from 'next-themes';
 import { LanguageProvider, OriginTracker } from '@/shared/lib/providers';
+import { CategoriesProvider } from '@/shared/lib/providers/categories-provider';
 import { ThemeColorObserver } from '@/shared/lib/utils/client/theme-color-observer';
 
 type Props = {
@@ -17,7 +18,9 @@ const Providers = ({ children, lng }: Props) => (
       <NextUIProvider>
         <ThemeProvider attribute='class' defaultTheme='system'>
           <ThemeColorObserver>
-            <OriginTracker>{children}</OriginTracker>
+            <OriginTracker>
+              <CategoriesProvider>{children}</CategoriesProvider>
+            </OriginTracker>
           </ThemeColorObserver>
         </ThemeProvider>
       </NextUIProvider>

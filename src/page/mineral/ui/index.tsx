@@ -1,9 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 'use client';
 
 import { m } from 'framer-motion';
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
-import { useMedia } from 'react-use';
+import { useEffect, useState } from 'react';
+import { useLocalStorage, useMedia } from 'react-use';
 import { MineralsData } from '@/shared/api/minerals-data';
 import { MineralType } from '@/shared/model/mineral.type';
 import { ThreeViewerAnimationVariants } from '../config/animation-variants';
@@ -21,7 +23,20 @@ type Props = {
 
 export const MineralPage = ({ mineralId }: Props) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [visitedIds, setVisitedIds] = useLocalStorage<number[]>(
+    'visited-items',
+    [],
+  );
   const isMobile = useMedia('(max-width: 1023px)', false);
+
+  useEffect(() => {
+    const numMineralId = Number(mineralId);
+    const filteredIds =
+      visitedIds?.filter((visitedId) => visitedId !== numMineralId) || [];
+    const newCollection = [numMineralId, ...filteredIds];
+
+    setVisitedIds(newCollection);
+  }, []);
 
   const mineral = MineralsData.find(
     (currMineral) => currMineral.id === Number(mineralId),

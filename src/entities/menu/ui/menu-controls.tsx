@@ -30,7 +30,7 @@ export const MenuControls = ({ handleClose }: Props) => {
         filter: 'blur(30px)',
         transition: { duration: 0.3 },
       }}
-      className='p-4 sm:p-6 xl:p-24 max-md:pt-10 w-full box-border md:box-content md:w-[400px] flex flex-col gap-4 z-20 origin-bottom'
+      className='p-4 sm:p-6 xl:p-24 max-md:pt-10 w-full box-border md:box-content md:w-[400px] flex flex-col gap-4 z-20 origin-bottom overflow-y-scroll'
     >
       <Link href='/history' onClick={handleClose}>
         <button

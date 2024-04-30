@@ -1,23 +1,19 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 'use client';
 
-import { useLocalStorage, useMedia } from 'react-use';
-import { Categories, MineralsData } from '@/shared/api/minerals-data';
-import { shuffleCollection } from '@/shared/lib/utils/shuffle-collection';
-import { sortCategories } from '@/shared/lib/utils/sort-categories';
+import { useMedia } from 'react-use';
+import { useCategoriesContext } from '@/shared/lib/providers/categories-provider';
 import { CategoriesListDesktop } from './categories-list-desktop';
 import { CategoriesListMobile } from './categories-list-mobile';
 
 export const CategoriesList = () => {
-  const [isRandom] = useLocalStorage('random-categories', false);
   const isMobile = useMedia('(max-width: 767px)', false);
-
-  const categoriesList = isRandom
-    ? shuffleCollection(Categories)
-    : sortCategories(Categories, MineralsData);
+  const list = useCategoriesContext();
 
   return isMobile ? (
-    <CategoriesListMobile categoriesList={categoriesList} />
+    <CategoriesListMobile categoriesList={list} />
   ) : (
-    <CategoriesListDesktop categoriesList={categoriesList} />
+    <CategoriesListDesktop categoriesList={list} />
   );
 };
