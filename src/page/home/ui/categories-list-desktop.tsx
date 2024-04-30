@@ -1,12 +1,14 @@
 import { CategoryCard } from '@/widgets/category-card';
 import { CategoryCarousel } from '@/widgets/category-carousel';
 import { CategorySwiper } from '@/widgets/category-swiper';
-import { Categories, MineralsData } from '@/shared/api/minerals-data';
-import { sortCategories } from '@/shared/lib/utils/sort-categories';
+import { MineralsData } from '@/shared/api/minerals-data';
+import { CategoryType } from '@/shared/model/mineral.type';
 
-export const CategoriesListDesktop = () => {
-  const categoriesList = sortCategories(Categories, MineralsData);
+type Props = {
+  categoriesList: CategoryType[];
+};
 
+export const CategoriesListDesktop = ({ categoriesList }: Props) => {
   return (
     <div className='w-full hidden md:grid grid-cols-2 gap-6 gap-y-14 xl:gap-14 '>
       {categoriesList.map((category, index) => {

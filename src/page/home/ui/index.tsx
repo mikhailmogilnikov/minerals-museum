@@ -1,3 +1,4 @@
+import { Spinner } from '@nextui-org/spinner';
 import dynamic from 'next/dynamic';
 import { MgriLogo } from '@/shared/assets/MgriLogo';
 import { useTranslation } from '@/shared/i18n';
@@ -6,8 +7,16 @@ type Props = {
   lng: string;
 };
 
-const DynamicCategoriesList = dynamic(() =>
-  import('./categories-list').then((mod) => mod.CategoriesList),
+const DynamicCategoriesList = dynamic(
+  () => import('./categories-list').then((mod) => mod.CategoriesList),
+  {
+    ssr: false,
+    loading: () => (
+      <div className='w-full flex justify-center items-center h-[60vh]'>
+        <Spinner />
+      </div>
+    ),
+  },
 );
 
 export const HomePage = async ({ lng }: Props) => {
