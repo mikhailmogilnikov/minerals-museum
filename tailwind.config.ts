@@ -18,12 +18,17 @@ const config: Config = {
       },
       animation: {
         preloaderPulse: 'preloadPulse 2s linear infinite',
+        fadeIn: 'fadeInKey 0.3s linear',
       },
       keyframes: {
         preloadPulse: {
           '0%': { opacity: '0.09' },
           '50%': { opacity: '0.14' },
           '100%': { opacity: '0.09' },
+        },
+        fadeInKey: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
         },
       },
     },

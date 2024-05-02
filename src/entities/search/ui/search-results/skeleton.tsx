@@ -14,13 +14,13 @@ export const SearchSkeleton = () => {
       <div className='w-full flex flex-col gap-4'>
         <Skeleton className='w-32 h-7 rounded-xl' />
         <div className='w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 2xl:grid-cols-6 gap-8'>
-          <Skeleton className='w-full aspect-[4/5] rounded-2xl' />
-          <Skeleton className='w-full aspect-[4/5] rounded-2xl' />
-          <Skeleton className='w-full aspect-[4/5] rounded-2xl' />
-          <Skeleton className='w-full aspect-[4/5] rounded-2xl' />
-          <Skeleton className='w-full aspect-[4/5] rounded-2xl' />
-          <Skeleton className='w-full aspect-[4/5] rounded-2xl' />
-          <Skeleton className='w-full aspect-[4/5] rounded-2xl' />
+          <Skeleton className='w-full aspect-[3/4] rounded-2xl' />
+          <Skeleton className='w-full aspect-[3/4] rounded-2xl' />
+          <Skeleton className='w-full aspect-[3/4] rounded-2xl' />
+          <Skeleton className='w-full aspect-[3/4] rounded-2xl' />
+          <Skeleton className='w-full aspect-[3/4] rounded-2xl' />
+          <Skeleton className='w-full aspect-[3/4] rounded-2xl' />
+          <Skeleton className='w-full aspect-[3/4] rounded-2xl' />
         </div>
       </div>
     </div>

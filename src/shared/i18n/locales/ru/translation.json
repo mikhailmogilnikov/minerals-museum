@@ -10,5 +10,16 @@
   "language": {
     "title": "Язык",
     "ru": "Русский"
+  },
+  "tabs": {
+    "selection": "Подборка",
+    "categories": "Категории",
+    "exhibits": "Экспонаты",
+    "history": "История просмотров"
+  },
+  "exhibits": {
+    "t_one": "{{count}} экспонат",
+    "t_few": "{{count}} экспоната",
+    "t_many": "{{count}} экспонатов"
   }
 }

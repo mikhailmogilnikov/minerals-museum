@@ -10,7 +10,7 @@ type Props = {
 
 export const CategoriesListDesktop = ({ categoriesList }: Props) => {
   return (
-    <div className='w-full hidden md:grid grid-cols-2 gap-6 gap-y-14 xl:gap-14 '>
+    <div className='w-full hidden md:grid grid-cols-2 gap-6 gap-y-14 xl:gap-14'>
       {categoriesList.map((category, index) => {
         const collection = MineralsData.filter(({ categories }) =>
           categories.includes(category.id),

@@ -2,8 +2,6 @@
 
 import { Divider } from '@nextui-org/divider';
 import { m } from 'framer-motion';
-import Link from 'next/link';
-import { PiCaretRightBold, PiClockCounterClockwiseBold } from 'react-icons/pi';
 import { ChangeLanguage } from '@/features/change-language';
 import { ChangeTheme } from '@/features/change-theme';
 import { ToggleRandomCategories } from '@/features/toggle-random-categories';
@@ -32,7 +30,7 @@ export const MenuControls = ({ handleClose }: Props) => {
       }}
       className='p-4 sm:p-6 xl:p-24 max-md:pt-10 w-full box-border md:box-content md:w-[400px] flex flex-col gap-4 z-20 origin-bottom overflow-y-scroll'
     >
-      <Link href='/history' onClick={handleClose}>
+      {/* <Link href='/history' onClick={handleClose}>
         <button
           type='button'
           className='w-[calc(100%+8px)] h-16 rounded-3xl flex items-center bg-default shadow-base px-5 justify-between -ml-1 mb-5 hover:scale-105 hover:shadow-hover active:scale-95 active:shadow-none transition-all'
@@ -47,7 +45,7 @@ export const MenuControls = ({ handleClose }: Props) => {
 
           <PiCaretRightBold className='w-auto h-2/6 opacity-50' />
         </button>
-      </Link>
+      </Link> */}
 
       <div className='flex justify-between items-center'>
         <h6 className='font-medium'>Оформление</h6>

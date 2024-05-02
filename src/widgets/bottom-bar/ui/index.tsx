@@ -18,7 +18,7 @@ export const BottomBar = () => {
   return (
     <AnimatePresence>
       {!isScrolledDown && !isBackableRoute && (
-        <m.div
+        <m.menu
           initial={{ opacity: 0, filter: 'blur(24px)' }}
           animate={{ opacity: 1, filter: 'blur(0px)' }}
           exit={{ opacity: 0, filter: 'blur(24px)' }}
@@ -26,7 +26,7 @@ export const BottomBar = () => {
         >
           <SearchButton />
           <MenuButton />
-        </m.div>
+        </m.menu>
       )}
     </AnimatePresence>
   );

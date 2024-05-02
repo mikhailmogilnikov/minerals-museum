@@ -1,1 +1,1 @@
-export const BackRoutes = ['category/[0-9]*', 'minerals/[0-9]*', 'history'];
+export const BackRoutes = ['category/[0-9]*', 'minerals/[0-9]*'];
