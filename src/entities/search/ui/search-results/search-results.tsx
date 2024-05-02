@@ -37,7 +37,7 @@ export const SearchResults = ({ value, handleClose }: Props) => {
           <h3 className='text-xl font-semibold'>Минералы</h3>
           <div className='w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 2xl:grid-cols-6 gap-4 md:gap-8'>
             {foundItems.map(({ name, id, img }) => (
-              <div key={id} className='w-full aspect-[4/5]'>
+              <div key={id} className='w-full aspect-[3/4]'>
                 <Card title={name} img={img} path={`/minerals/${id}`} />
               </div>
             ))}
