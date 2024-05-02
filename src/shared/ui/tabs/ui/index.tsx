@@ -1,8 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+
 'use client';
 
 import { Tabs as NativeTabs, Tab } from '@nextui-org/tabs';
 import { usePathname, useRouter } from 'next/navigation';
-import { Key } from 'react';
+import { Key, useEffect } from 'react';
 import { useClientTranslation } from '@/shared/i18n/use-client-translation';
 
 type Props = {
@@ -16,6 +18,12 @@ export const Tabs = ({ items }: Props) => {
 
   const pathWithoutLocation = pathname.slice(3);
   const truePath = pathWithoutLocation === '' ? '/' : pathWithoutLocation;
+
+  useEffect(() => {
+    items.forEach(({ href }) => {
+      router.prefetch(href);
+    });
+  }, []);
 
   const handleChange = (value: Key) => {
     router.push(value as string);
