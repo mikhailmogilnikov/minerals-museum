@@ -5,7 +5,7 @@ export const MineralsData: MineralType[] = [
     id: 0,
     name: 'Флюорит',
     description: '',
-    categories: [0, 2, 3, 4, 6],
+    categories: [0],
     specs: [],
     model: '/ru/models/fluorite.glb',
     img: '/ru/images/fluorite.png',
@@ -14,7 +14,7 @@ export const MineralsData: MineralType[] = [
     id: 1,
     name: 'Арагонит',
     description: '',
-    categories: [0, 2, 3, 5, 6, 7],
+    categories: [0],
     specs: [],
     model: '/ru/models/aragonite.glb',
     img: '/ru/images/aragonite.png',
@@ -24,7 +24,7 @@ export const MineralsData: MineralType[] = [
     name: 'Перит',
     description:
       'Гетерогенная горная порода, состоящая из разнообразных минералов, среди которых доминируют пирит, кварц, мусковит, хлорит, кальцит, доломит и турмалин.',
-    categories: [1, 2, 3, 4, 5, 6, 7],
+    categories: [0],
     specs: [
       {
         title: 'Цвет',
@@ -50,7 +50,7 @@ export const MineralsData: MineralType[] = [
     id: 3,
     name: 'Аметист',
     description: '',
-    categories: [2, 3, 5, 7],
+    categories: [],
     specs: [],
     model: '/ru/models/amethyst.glb',
     img: '/ru/images/amethyst.png',
@@ -59,7 +59,7 @@ export const MineralsData: MineralType[] = [
     id: 4,
     name: 'Сланец',
     description: '',
-    categories: [0, 1, 3, 4, 6],
+    categories: [],
     specs: [],
     model: '/ru/models/testStone.glb',
     img: '/ru/images/testStone.png',
@@ -68,7 +68,7 @@ export const MineralsData: MineralType[] = [
     id: 5,
     name: 'Голубой кальцит',
     description: '',
-    categories: [0, 1, 2, 3, 5, 7],
+    categories: [0],
     specs: [],
     model: '/ru/models/calcite.glb',
     img: '/ru/images/calcite.webp',
@@ -77,7 +77,7 @@ export const MineralsData: MineralType[] = [
     id: 6,
     name: 'Базальт',
     description: '',
-    categories: [0, 2, 3, 4, 5, 6, 7],
+    categories: [8],
     specs: [],
     model: '/ru/models/basalt.glb',
     img: '/ru/images/basalt.webp',
@@ -86,7 +86,7 @@ export const MineralsData: MineralType[] = [
     id: 7,
     name: 'Халит',
     description: '',
-    categories: [1, 2, 4, 5, 6, 7],
+    categories: [0],
     specs: [],
     model: '/ru/models/halite.glb',
     img: '/ru/images/halite.webp',
@@ -95,7 +95,7 @@ export const MineralsData: MineralType[] = [
     id: 8,
     name: 'Мусковит',
     description: '',
-    categories: [2, 4, 5, 6, 7],
+    categories: [0],
     specs: [],
     model: '/ru/models/muscovite.glb',
     img: '/ru/images/muscovite.webp',
@@ -104,7 +104,7 @@ export const MineralsData: MineralType[] = [
     id: 9,
     name: 'Кварцевая жеода',
     description: '',
-    categories: [0, 1, 4, 5, 6, 7],
+    categories: [0],
     specs: [],
     model: '/ru/models/quartz_geode.glb',
     img: '/ru/images/quartz_geode.webp',
@@ -115,7 +115,8 @@ export const Categories: CategoryType[] = [
   {
     id: 0,
     name: 'Минералы',
-    description: 'Описание для категории 1',
+    description:
+      'Однородная по составу и строению часть горных пород, руд, метеоритов, являющаяся естественным продуктом геологических процессов и представляющая собой химическое соединение или химический элемент. \nМинерал может находиться в любом агрегатном состоянии, при этом большинство минералов — твёрдые тела. Минералы подразделяют на имеющие кристаллическую структуру, аморфные и минералы, имеющие внешнюю форму кристаллов, но находящиеся в аморфном состоянии (метамиктные минералы).',
   },
   {
     id: 1,
@@ -153,5 +154,11 @@ export const Categories: CategoryType[] = [
     name: 'Оксиды',
     description:
       'Расширенное текстовое писание для категории 4. Расширенное текстовое писание для категории 4. Расширенное текстовое писание для категории 4. Расширенное текстовое писание для категории 4.',
+  },
+  {
+    id: 8,
+    name: 'Магматические породы',
+    description:
+      'Конечные продукты магматической деятельности, возникшие в результате затвердевания природного расплава (магмы, лавы). Переход расплава в твёрдое состояние сопровождается кристаллизацией вещества. \nВстречаются в широком диапазоне геологических условий: щиты, платформы, орогены, океаническая кора и др. Магматические и метаморфические породы по объёму составляют 90—95 % верхней (16 км) земной коры. \nМагматические породы образуют около 15 % современной поверхности Земли.',
   },
 ];

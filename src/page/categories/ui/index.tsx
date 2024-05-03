@@ -20,7 +20,7 @@ export const CategoriesPage = async ({ lng }: Props) => {
           categories.includes(Number(id)),
         );
 
-        return (
+        return collection.length > 0 && (
           <Link key={id} href={`/category/${id}`}>
             <li className='w-full h-20 bg-default shadow-base p-4 rounded-[20px] hover:scale-[1.02] hover:shadow-hover active:scale-[0.98] active:shadow-none transition-all'>
               <div className='w-full flex justify-between items-center'>

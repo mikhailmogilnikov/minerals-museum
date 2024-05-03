@@ -24,7 +24,7 @@ export const ExhibitsPage = () => {
         onPress={handleSetFade}
         size='md'
         color={isFade ? 'primary' : 'default'}
-        className='w-min rounded-2xl font-medium'
+        className='w-min rounded-2xl font-medium shadow-base'
       >
         {isFade ? <PiEyeBold size={20} /> : <PiEyeClosedBold size={20} />}
         Затемнять просмотренные

@@ -21,13 +21,15 @@ export const CategoryPage = ({ lng, categoryId }: Props) => {
 
   return (
     <main className='w-full min-h-screen flex flex-col gap-8 md:gap-16 p-4 sm:p-6 xl:p-24 !pb-32'>
-      <div className='flex flex-col gap-3 md:gap-8 mt-14 xl:mt-0'>
-        <h1 className='text-[24px] sm:text-[40px] md:text-[50px] lg:text-[60px] font-bold'>
+      <div className='flex flex-col gap-5 md:gap-8 mt-14 xl:mt-0'>
+        <h1 className='text-[28px] sm:text-[40px] md:text-[50px] lg:text-[60px] font-bold'>
           {category?.name}
         </h1>
-        <h2 className='text-md lg:text-2xl font-medium opacity-60'>
-          {category?.description}
-        </h2>
+        {category?.description.split('\n').map((sent) => (
+          <h2 key={sent} className='text-md lg:text-xl font-medium opacity-60'>
+            {sent}
+          </h2>
+        ))}
       </div>
       <MineralsList list={sortedCollection} />
     </main>
