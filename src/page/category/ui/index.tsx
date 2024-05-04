@@ -1,5 +1,6 @@
 import { MineralsList } from '@/widgets/minerals-list';
 import { Categories, MineralsData } from '@/shared/api/minerals-data';
+import { TextExpand } from '@/shared/ui/text-expand/ui';
 
 type Props = {
   lng: string;
@@ -25,11 +26,7 @@ export const CategoryPage = ({ lng, categoryId }: Props) => {
         <h1 className='text-[28px] sm:text-[40px] md:text-[50px] lg:text-[60px] font-bold'>
           {category?.name}
         </h1>
-        {category?.description.split('\n').map((sent) => (
-          <h2 key={sent} className='text-md lg:text-xl font-medium opacity-60'>
-            {sent}
-          </h2>
-        ))}
+        <TextExpand text={category?.description as string} />
       </div>
       <MineralsList list={sortedCollection} />
     </main>

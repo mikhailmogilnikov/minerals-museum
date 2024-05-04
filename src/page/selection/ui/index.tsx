@@ -62,19 +62,19 @@ export const SelectionPage = () => {
           <Button
             as={Link}
             href='/exhibits'
-            className='shadow-base font-medium'
+            className='shadow-base font-medium rounded-2xl'
           >
             Посмотреть все экспонаты
           </Button>
           <Button
             as={Link}
             href='/categories'
-            className='shadow-base font-medium'
+            className='shadow-base font-medium rounded-2xl'
           >
             Изучить все категории
           </Button>
         </div>
-        <p className='font-medium mt-6'>
+        <p className='font-medium mt-6 leading-loose'>
           <span className='opacity-50'>Или воспользуйтесь</span>{' '}
           <Button
             size='sm'
