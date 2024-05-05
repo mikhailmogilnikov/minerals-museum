@@ -39,17 +39,19 @@ export const TextExpand = ({
           </Tag>
         );
       })}
-      <Button
-        type='button'
-        onClick={handleExpand}
-        className='w-fit px-4 py-2 rounded-2xl bg-default shadow-base flex justify-center items-center gap-2 text-sm'
-      >
-        <m.div animate={isExpanded ? { rotate: 180 } : { rotate: 0 }}>
-          <PiCaretDownBold />
-        </m.div>
+      {text.split('\n').length > 1 && (
+        <Button
+          type='button'
+          onClick={handleExpand}
+          className='w-fit px-4 py-2 rounded-2xl bg-default shadow-base flex justify-center items-center gap-2 text-sm'
+        >
+          <m.div animate={isExpanded ? { rotate: 180 } : { rotate: 0 }}>
+            <PiCaretDownBold />
+          </m.div>
 
-        {isExpanded ? 'Скрыть описание' : ' Раскрыть описание'}
-      </Button>
+          {isExpanded ? 'Скрыть описание' : ' Раскрыть описание'}
+        </Button>
+      )}
     </>
   );
 };

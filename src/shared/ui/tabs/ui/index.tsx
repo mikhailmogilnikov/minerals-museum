@@ -8,7 +8,7 @@ import { Key, useEffect } from 'react';
 import { useClientTranslation } from '@/shared/i18n/use-client-translation';
 
 type Props = {
-  items: { id: number; name: string; href: string }[];
+  items: { name: string; href: string }[];
 };
 
 export const Tabs = ({ items }: Props) => {
@@ -39,7 +39,7 @@ export const Tabs = ({ items }: Props) => {
       selectedKey={truePath}
       onSelectionChange={handleChange}
       classNames={{
-        tabList: 'p-0',
+        tabList: 'px-0 py-1',
         cursor: 'rounded-[14px]',
         tabContent: 'font-medium',
       }}
