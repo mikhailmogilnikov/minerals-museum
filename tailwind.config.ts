@@ -80,9 +80,8 @@ const config: Config = {
               foreground: '#000000',
             },
             danger: {
-              500: '#7f1c1d',
-              DEFAULT: '#7f1c1d',
-              foreground: 'white',
+              DEFAULT: '#ED2939',
+              foreground: '#ffffff',
             },
             success: {
               DEFAULT: 'rgb(58, 171, 64)',

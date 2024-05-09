@@ -30,7 +30,7 @@ export const SearchModal = ({ isExpanded, setIsExpanded }: Props) => {
             animate='expanded'
             exit='hidden'
             style={{ willChange }}
-            className='fixed z-50 flex flex-col items-start'
+            className='fixed z-50 flex flex-col items-start shadow-base'
           >
             <SearchInput
               setDebouncedValue={setDebouncedValue}

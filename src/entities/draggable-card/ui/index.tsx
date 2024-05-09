@@ -5,6 +5,7 @@ type Props = {
   children: ReactNode;
   x: MotionValue<number>;
   onClick: () => void;
+  onDrag?: (_: any, info: any) => void;
   onDragEnd: (_: any, info: any) => void;
   className?: string;
 };
@@ -14,6 +15,7 @@ export const DraggableCard = ({
   x,
   onClick,
   onDragEnd,
+  onDrag,
   className = 'w-72 aspect-[3/4] cursor-grab relative',
 }: Props) => {
   const opacity = useTransform(x, [-100, 0, 100], [0, 1, 0]);
@@ -31,6 +33,7 @@ export const DraggableCard = ({
       dragElastic={0.7}
       style={{ x, opacity, rotate, scale }}
       onDragEnd={onDragEnd}
+      onDrag={onDrag}
       onClick={onClick}
       className={className}
     >
