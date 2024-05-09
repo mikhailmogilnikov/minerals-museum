@@ -25,8 +25,8 @@ export const DraggableCard = ({
   return (
     <m.div
       initial={{ scale: 0.8, opacity: 0, filter: 'blur(24px)' }}
-      animate={{ scale: 1, opacity: 1, filter: 'blur(0px)' }}
-      exit={{ scale: 0.8, opacity: 0, filter: 'blur(24px)' }}
+      animate={{ scale: 1, opacity: 1, filter: 'blur(0px)', y: 0 }}
+      exit={{ filter: 'blur(100px)', y: 10 }}
       drag='x'
       dragSnapToOrigin
       dragConstraints={{ left: 0, right: 0 }}

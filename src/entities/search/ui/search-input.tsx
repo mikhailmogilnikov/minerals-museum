@@ -35,7 +35,7 @@ export const SearchInput = ({
       animate='visible'
       exit='exit'
       style={{ willChange }}
-      className='w-full h-[68px] md:h-28 px-4 sm:px-8 md:px-12 lg:px-24 pt-4 md:pt-12 flex gap-4 md:gap-8'
+      className='w-full h-[68px] md:h-28 px-4 sm:px-8 md:px-12 lg:px-24 pt-4 md:pt-12 max-md:mt-4 flex gap-4 md:gap-8'
     >
       <Input
         value={value}

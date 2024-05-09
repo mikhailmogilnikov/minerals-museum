@@ -2,29 +2,40 @@ import { Button } from '@nextui-org/button';
 import { useRouter } from 'next/navigation';
 import {
   PiArrowCircleUpBold,
-  PiCaretLeftBold,
   PiCaretRightBold,
 } from 'react-icons/pi';
 
 type Props = {
   isClosable: boolean;
+  itemId: number;
+  // handleClickBack: () => void;
+  // isBackable: boolean;
+  handleClickForward: () => void;
 };
 
-export const ExploreControls = ({ isClosable }: Props) => {
+export const ExploreControls = ({
+  isClosable,
+  itemId,
+  // handleClickBack,
+  // isBackable,
+  handleClickForward,
+}: Props) => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push('/minerals/9');
+    router.push(`/minerals/${itemId}`);
   };
 
   return (
     <div className='flex gap-4'>
-      <Button
+      {/* <Button
         startContent={<PiCaretLeftBold size={20} />}
         radius='full'
         isIconOnly
         className='shadow-base'
-      />
+        isDisabled={!isBackable}
+        onPress={handleClickBack}
+      /> */}
 
       <Button
         onClick={handleClick}
@@ -39,6 +50,7 @@ export const ExploreControls = ({ isClosable }: Props) => {
         radius='full'
         color={isClosable ? 'primary' : 'default'}
         isIconOnly
+        onPress={handleClickForward}
         className='shadow-base'
       />
     </div>

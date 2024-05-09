@@ -13,7 +13,7 @@ export const MineralInfo = ({ mineral }: Props) => {
   const similarMinerals = findSimilar(mineral as MineralType, MineralsData);
 
   return (
-    <div className='absolute top-0 right-0 w-full lg:w-1/2 mt-[70vh] lg:mt-0 lg:h-dvh flex flex-col gap-8 p-4 md:p-10 max-md:pt-10 lg:overflow-y-scroll'>
+    <div className='absolute top-0 right-0 w-full lg:w-1/2 mt-[70vh] lg:mt-0 lg:h-dvh flex flex-col gap-8 p-4 md:p-10 max-md:pt-10 pb-16 lg:overflow-y-scroll'>
       <h1 className='text-3xl md:text-5xl font-bold'>{mineral.name}</h1>
 
       {mineral.description && <TextExpand text={mineral.description} />}
