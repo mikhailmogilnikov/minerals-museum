@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useMotionValue } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { PiQuestionBold } from 'react-icons/pi';
@@ -72,6 +73,10 @@ export const ExploreWidget = ({ incUpdater }: Props) => {
     }
   }, [isFaded]);
 
+  useEffect(() => {
+    setActiveItemId(activeMineral.id);
+  }, [activeMineral]);
+
   const setNextItem = () => {
     setIsFaded(true);
     setItemCounter(itemCounter + 1);
@@ -89,7 +94,6 @@ export const ExploreWidget = ({ incUpdater }: Props) => {
 
     const nextItem = isOutOfRange ? itemsList[1] : itemsList[itemCounter + 1];
 
-    setActiveItemId(nextItem.id);
     setActiveMineral(nextItem);
 
     if (backCounter > 0) {

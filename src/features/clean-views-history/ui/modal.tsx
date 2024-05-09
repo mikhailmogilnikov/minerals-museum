@@ -8,10 +8,12 @@ type Props = {
 };
 
 export const DeleteModalContent = ({ onClose }: Props) => {
-  const [__, _, deleteItems] = useLocalStorage('visited-items', []);
+  const [, , deleteItems] = useLocalStorage('visited-items', []);
+  const [, , deleteExploreItems] = useLocalStorage('explore-viewed-items', []);
 
   const handleClickDelete = () => {
     deleteItems();
+    deleteExploreItems();
     window.location.reload();
   };
 
@@ -22,8 +24,9 @@ export const DeleteModalContent = ({ onClose }: Props) => {
       </ModalHeader>
       <ModalBody>
         <p className='opacity-50 font-medium'>
-          Вы собираетесь удалить историю просмотров на этом устройстве.
-          Продолжить?
+          Вы собираетесь удалить всю историю просмотров. Это действие
+          распространится на изученные экспонаты и просмотренные карточки в
+          режиме исследования. Продолжить?
         </p>
       </ModalBody>
       <ModalFooter>
