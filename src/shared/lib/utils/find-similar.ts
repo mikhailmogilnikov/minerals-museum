@@ -23,7 +23,7 @@ export const findSimilar = (
   );
 
   const filteredMineralsIds = Object.entries(counter)
-    .filter(([_, value]) => value > 3)
+    .filter(([_, value]) => value > 1)
     .sort((a, b) => b[1] - a[1])
     .map(([key]) => key);
 

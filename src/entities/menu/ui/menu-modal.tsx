@@ -20,7 +20,7 @@ export const MenuModal = ({ isExpanded, setIsExpanded }: Props) => {
   return (
     <AnimatePresence>
       {isExpanded && (
-        <RemoveScroll className='fixed z-50'>
+        <RemoveScroll removeScrollBar={false} className='fixed z-50'>
           <m.div
             variants={MenuModalAnimationVariants}
             initial='hidden'
