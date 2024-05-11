@@ -19,7 +19,7 @@ export const Card = ({ title, img, path }: Props) => {
           className='w-full aspect-square absolute top-0'
         />
         <div className='w-full p-4'>
-          <h5 className='text-lg font-medium'>{title}</h5>
+          <h5 className='font-medium'>{title}</h5>
         </div>
       </div>
     </Link>

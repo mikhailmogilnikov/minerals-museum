@@ -31,7 +31,7 @@ export const ExploreWidget = ({ incUpdater }: Props) => {
   const getItemList = () => {
     const itemsWithActive = activeItemId
       ? [
-          MineralsData[activeItemId],
+          MineralsData[activeItemId - 1],
           ...MineralsData.filter(({ id }) => id !== activeItemId),
         ]
       : MineralsData;
