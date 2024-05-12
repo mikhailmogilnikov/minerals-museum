@@ -14,7 +14,7 @@ type Props = {
 export const TextExpand = ({
   text,
   tag = 'p',
-  className = 'text-md lg:text-xl font-medium opacity-60',
+  className = 'text-md lg:text-lg font-medium opacity-60 select-text first-letter:uppercase',
 }: Props) => {
   const [isExpanded, setIsExpanded] = useState(false);
 

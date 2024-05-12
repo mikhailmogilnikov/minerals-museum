@@ -14,7 +14,7 @@ export const MineralInfo = ({ mineral }: Props) => {
 
   return (
     <div className='absolute top-0 right-0 w-full lg:w-1/2 mt-[70vh] lg:mt-0 lg:h-dvh flex flex-col gap-8 p-4 md:p-10 max-md:pt-10 pb-16 lg:overflow-y-scroll overflow-x-hidden'>
-      <h1 className='text-3xl md:text-5xl font-bold'>{mineral.name}</h1>
+      <h1 className='text-3xl md:text-5xl font-bold select-text first-letter:uppercase'>{mineral.name}</h1>
 
       {mineral.description && <TextExpand text={mineral.description} />}
 
@@ -23,7 +23,7 @@ export const MineralInfo = ({ mineral }: Props) => {
           <h3 className='text-xl font-semibold'>Характеристики</h3>
           <div className='w-full flex flex-col gap-2'>
             {mineral.specs.map(({ title, content }) => (
-              <h5 key={title} className='text-lg font-medium'>
+              <h5 key={title} className='font-medium select-text first-letter:uppercase'>
                 <span className='opacity-50'>{title}: </span> {content}
               </h5>
             ))}

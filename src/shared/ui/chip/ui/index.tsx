@@ -19,7 +19,7 @@ export const Chip = ({ categoryId, onPress }: Props) => {
       size='sm'
       radius='full'
       onPress={onPress}
-      className='w-min text-sm font-medium shadow-base'
+      className='w-min text-sm font-medium shadow-base first-letter:uppercase'
     >
       {category?.name}
     </Button>
