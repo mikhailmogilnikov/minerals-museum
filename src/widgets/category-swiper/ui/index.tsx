@@ -14,7 +14,7 @@ export const CategorySwiper = ({ category, collection }: Props) => {
       <div className='w-full flex md:flex-col justify-between max-md:items-center md:justify-center gap-4 px-4 sm:px-6 xl:px-24'>
         <h3 className='text-xl md:text-4xl font-semibold '>{category.name}</h3>
 
-        <h4 className='w-full text-lg md:text-xl font-semibold opacity-50 line-clamp-2 max-md:hidden'>
+        <h4 className='w-full text-md md:text-lg font-medium opacity-50 line-clamp-2 max-md:hidden'>
           {category.description}
         </h4>
 
