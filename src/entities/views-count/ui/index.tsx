@@ -2,11 +2,13 @@
 
 import { CircularProgress } from '@nextui-org/progress';
 import { useLocalStorage } from 'react-use';
-import { MineralsData } from '@/shared/api/minerals-data';
+import { useItems } from '@/shared/lib/providers/items-provider';
 
 export const ViewsCount = () => {
   const [visitedItems] = useLocalStorage<number[]>('visited-items', []);
-  const itemsCount = MineralsData.length;
+  const items = useItems();
+
+  const itemsCount = items.length;
   const visitedItemsCount = (visitedItems || []).length;
 
   const viewsPercentage = Math.round((visitedItemsCount / itemsCount) * 100);

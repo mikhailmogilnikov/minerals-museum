@@ -6,7 +6,7 @@ import { m } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 import { useLocalStorage, useMedia } from 'react-use';
-import { MineralsData } from '@/shared/api/minerals-data';
+import { useItems } from '@/shared/lib/providers/items-provider';
 import { MineralType } from '@/shared/model/mineral.type';
 import { ThreeViewerAnimationVariants } from '../config/animation-variants';
 import { MineralInfo } from './info';
@@ -28,6 +28,7 @@ export const MineralPage = ({ mineralId }: Props) => {
     [],
   );
   const isMobile = useMedia('(max-width: 1023px)', false);
+  const items = useItems();
 
   useEffect(() => {
     const numMineralId = Number(mineralId);
@@ -38,7 +39,7 @@ export const MineralPage = ({ mineralId }: Props) => {
     setVisitedIds(newCollection);
   }, []);
 
-  const mineral = MineralsData.find(
+  const mineral = items.find(
     (currMineral) => currMineral.id === Number(mineralId),
   );
 

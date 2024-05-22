@@ -16,7 +16,9 @@
     "explore": "Исследование",
     "categories": "Категории",
     "exhibits": "Экспонаты",
-    "history": "История просмотров"
+    "history": "История просмотров",
+    "edit-items": "Экспонаты",
+    "edit-categories": "Категории"
   },
   "exhibits": {
     "t_one": "{{count}} экспонат",

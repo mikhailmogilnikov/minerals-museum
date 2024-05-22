@@ -1,10 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { createContext, useContext, useEffect, useState } from 'react';
-import { useLocalStorage } from 'react-use';
-import { Categories, MineralsData } from '@/shared/api/minerals-data';
+import { Categories } from '@/shared/api/minerals-data';
 import { CategoryType } from '@/shared/model/mineral.type';
-import { shuffleCollection } from '../../utils/shuffle-collection';
-import { sortCategories } from '../../utils/sort-categories';
 
 const CategoriesContext = createContext<CategoryType[]>([]);
 
@@ -13,14 +10,10 @@ type Props = {
 };
 
 export const CategoriesProvider = ({ children }: Props) => {
-  const [isRandom] = useLocalStorage('random-categories', false);
   const [list, setList] = useState<CategoryType[]>([]);
 
   useEffect(() => {
-    const categoriesList = isRandom
-      ? shuffleCollection(Categories)
-      : sortCategories(Categories, MineralsData);
-
+    const categoriesList = Categories;
     setList(categoriesList);
   }, []);
 
@@ -31,4 +24,4 @@ export const CategoriesProvider = ({ children }: Props) => {
   );
 };
 
-export const useCategoriesContext = () => useContext(CategoriesContext);
+export const useCategories = () => useContext(CategoriesContext);

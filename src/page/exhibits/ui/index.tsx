@@ -4,13 +4,13 @@ import { Button } from '@nextui-org/button';
 import { clsx } from 'clsx';
 import { PiEyeBold, PiEyeClosedBold } from 'react-icons/pi';
 import { useLocalStorage } from 'react-use';
-import { MineralsData } from '@/shared/api/minerals-data';
+import { useItems } from '@/shared/lib/providers/items-provider';
 import { Card } from '@/shared/ui/card';
 
 export const ExhibitsPage = () => {
-  const sortedCollection = MineralsData.sort((a, b) =>
-    a.name.localeCompare(b.name),
-  );
+  const items = useItems();
+
+  const sortedCollection = items.sort((a, b) => a.name.localeCompare(b.name));
   const [isFade, setIsFade] = useLocalStorage<boolean>('is-fadeble', false);
   const [visited] = useLocalStorage<number[]>('visited-items', []);
 

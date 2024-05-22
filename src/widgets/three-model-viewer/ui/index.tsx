@@ -82,6 +82,7 @@ export const ThreeModelViewer = ({
             </Resize>
             <OrbitControls
               autoRotate={autoRotate}
+              autoRotateSpeed={0.5}
               enablePan={false}
               minDistance={2.4}
               maxDistance={20}

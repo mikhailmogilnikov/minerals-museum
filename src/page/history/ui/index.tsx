@@ -4,15 +4,16 @@ import { PiMagnifyingGlass } from 'react-icons/pi';
 import { useLocalStorage } from 'react-use';
 import { MineralsList } from '@/widgets/minerals-list';
 import { ViewsCount } from '@/entities/views-count';
-import { MineralsData } from '@/shared/api/minerals-data';
+import { useItems } from '@/shared/lib/providers/items-provider';
 import { MineralType } from '@/shared/model/mineral.type';
 import { Placeholder } from '@/shared/ui/placeholder';
 
 export const HistoryPage = () => {
   const [itemsIds] = useLocalStorage<number[]>('visited-items', []);
+  const items = useItems();
 
   const collection =
-    itemsIds?.map((id) => MineralsData.find((mineral) => mineral.id === id)) ||
+    itemsIds?.map((id) => items.find((mineral) => mineral.id === id)) ||
     [];
 
   return (

@@ -1,6 +1,6 @@
 import { Button } from '@nextui-org/button';
 import Link from 'next/link';
-import { Categories } from '@/shared/api/minerals-data';
+import { useCategories } from '@/shared/lib/providers/categories-provider';
 
 type Props = {
   categoryId: number;
@@ -8,7 +8,9 @@ type Props = {
 };
 
 export const Chip = ({ categoryId, onPress }: Props) => {
-  const category = Categories.find(
+  const categories = useCategories();
+
+  const category = categories.find(
     (currCategory) => currCategory.id === categoryId,
   );
 

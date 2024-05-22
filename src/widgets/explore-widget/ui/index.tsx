@@ -3,7 +3,7 @@ import { useMotionValue } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { PiQuestionBold } from 'react-icons/pi';
 import { useLocalStorage } from 'react-use';
-import { MineralsData } from '@/shared/api/minerals-data';
+import { useItems } from '@/shared/lib/providers/items-provider';
 import { MineralType } from '@/shared/model/mineral.type';
 import { ClosableNotification } from '@/shared/ui/closable-notification';
 import { ExploreCard } from './card';
@@ -16,6 +16,7 @@ type Props = {
 export const ExploreWidget = ({ incUpdater }: Props) => {
   const x = useMotionValue(0);
   const [isClosable, setIsClosable] = useState(false);
+  const items = useItems();
   const [activeItemId, setActiveItemId] = useLocalStorage<number>(
     'explore-active-item',
   );
@@ -31,16 +32,16 @@ export const ExploreWidget = ({ incUpdater }: Props) => {
   const getItemList = () => {
     const itemsWithActive = activeItemId
       ? [
-          MineralsData[activeItemId - 1],
-          ...MineralsData.filter(({ id }) => id !== activeItemId),
+          items[activeItemId - 1],
+          ...items.filter(({ id }) => id !== activeItemId),
         ]
-      : MineralsData;
+      : items;
 
-    if ((exploredItems || []).length >= MineralsData.length) {
+    if ((exploredItems || []).length >= items.length) {
       return itemsWithActive;
     }
 
-    if ((viewedItemsIds || []).length >= MineralsData.length) {
+    if ((viewedItemsIds || []).length >= items.length) {
       const filteredItems = itemsWithActive.filter(
         ({ id }) => !(exploredItems || []).includes(id) || id === activeItemId,
       );
@@ -118,7 +119,7 @@ export const ExploreWidget = ({ incUpdater }: Props) => {
 
   //     console.log(itemsList)
 
-  //     setActiveMineral(MineralsData[viewedItemsIds[backCounter]]);
+  //     setActiveMineral(items[viewedItemsIds[backCounter]]);
   //     setBackCounter(backCounter + 1);
   //     setIsFaded(true);
   //   }

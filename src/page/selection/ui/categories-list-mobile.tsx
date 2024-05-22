@@ -1,7 +1,7 @@
 import { CategoryCard } from '@/widgets/category-card';
 import { CategoryCarousel } from '@/widgets/category-carousel';
 import { CategorySwiper } from '@/widgets/category-swiper';
-import { MineralsData } from '@/shared/api/minerals-data';
+import { useItems } from '@/shared/lib/providers/items-provider';
 import { CategoryType } from '@/shared/model/mineral.type';
 
 type Props = {
@@ -9,10 +9,12 @@ type Props = {
 };
 
 export const CategoriesListMobile = ({ categoriesList }: Props) => {
+  const items = useItems();
+
   return (
     <div className='w-full flex flex-col gap-10 md:hidden'>
       {categoriesList.map((category, index) => {
-        const collection = MineralsData.filter(({ categories }) =>
+        const collection = items.filter(({ categories }) =>
           categories.includes(category.id),
         );
 

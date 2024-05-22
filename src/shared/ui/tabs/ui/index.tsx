@@ -26,7 +26,7 @@ export const Tabs = ({ items }: Props) => {
   }, []);
 
   const handleChange = (value: Key) => {
-    router.push(value as string);
+    router.replace(value as string);
   };
 
   return (

@@ -1,5 +1,8 @@
+'use client';
+
 import { MineralsList } from '@/widgets/minerals-list';
-import { Categories, MineralsData } from '@/shared/api/minerals-data';
+import { useCategories } from '@/shared/lib/providers/categories-provider';
+import { useItems } from '@/shared/lib/providers/items-provider';
 import { TextExpand } from '@/shared/ui/text-expand/ui';
 
 type Props = {
@@ -8,12 +11,16 @@ type Props = {
 };
 
 export const CategoryPage = ({ lng, categoryId }: Props) => {
-  const category = Categories.find(
+  const categories = useCategories();
+  const items = useItems();
+
+  const category = categories.find(
     (currCategory) => currCategory.id === Number(categoryId),
   );
 
-  const collection = MineralsData.filter(({ categories }) =>
-    categories.includes(Number(categoryId)),
+  const collection = items.filter(
+    ({ categories: collectionCategories }) =>
+      collectionCategories.includes(Number(categoryId)),
   );
 
   const sortedCollection = collection.sort((a, b) =>

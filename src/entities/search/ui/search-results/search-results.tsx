@@ -1,5 +1,6 @@
 import { PiMagnifyingGlass } from 'react-icons/pi';
-import { Categories, MineralsData } from '@/shared/api/minerals-data';
+import { useCategories } from '@/shared/lib/providers/categories-provider';
+import { useItems } from '@/shared/lib/providers/items-provider';
 import { findByKeyword } from '@/shared/lib/utils/find-by-keyword';
 import { Card } from '@/shared/ui/card';
 import { Chip } from '@/shared/ui/chip';
@@ -11,13 +12,14 @@ type Props = {
 };
 
 export const SearchResults = ({ value, handleClose }: Props) => {
-  const foundCategories = Categories.filter(({ name }) =>
+  const categories = useCategories();
+  const items = useItems();
+
+  const foundCategories = categories.filter(({ name }) =>
     findByKeyword(value, name),
   );
 
-  const foundItems = MineralsData.filter(({ name }) =>
-    findByKeyword(value, name),
-  );
+  const foundItems = items.filter(({ name }) => findByKeyword(value, name));
 
   return (
     <div className='w-full flex flex-col gap-10'>

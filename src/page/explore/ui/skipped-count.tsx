@@ -1,6 +1,6 @@
 import { CircularProgress } from '@nextui-org/react';
 import { useEffect, useState } from 'react';
-import { MineralsData } from '@/shared/api/minerals-data';
+import { useItems } from '@/shared/lib/providers/items-provider';
 
 type Props = {
   updater: number;
@@ -8,6 +8,7 @@ type Props = {
 
 export const SkippedCount = ({ updater }: Props) => {
   const [viewedItemsIds, setViewedItemsIds] = useState([]);
+  const itemList = useItems();
 
   useEffect(() => {
     const items = localStorage.getItem('explore-viewed-items');
@@ -15,7 +16,7 @@ export const SkippedCount = ({ updater }: Props) => {
     setViewedItemsIds(parsedItems);
   }, [updater]);
 
-  const itemsCount = MineralsData.length;
+  const itemsCount = itemList.length;
   const viewedItemsCount = viewedItemsIds.length;
 
   const viewsPercentage = Math.round((viewedItemsCount / itemsCount) * 100);

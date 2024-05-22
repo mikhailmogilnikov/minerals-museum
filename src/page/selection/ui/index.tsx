@@ -6,8 +6,8 @@ import { Button } from '@nextui-org/button';
 import Link from 'next/link';
 import { PiMagnifyingGlassBold, PiShuffleBold } from 'react-icons/pi';
 import { useLocalStorage, useMedia } from 'react-use';
-import { MineralsData } from '@/shared/api/minerals-data';
-import { useCategoriesContext } from '@/shared/lib/providers/categories-provider';
+import { useHomeCategoriesContext } from '@/shared/lib/providers/home-categories-provider';
+import { useItems } from '@/shared/lib/providers/items-provider';
 import { InfoButton } from '@/shared/ui/info-button';
 import { CategoriesListDesktop } from './categories-list-desktop';
 import { CategoriesListMobile } from './categories-list-mobile';
@@ -18,10 +18,11 @@ export const SelectionPage = () => {
     'random-categories',
     false,
   );
-  const list = useCategoriesContext();
+  const items = useItems();
+  const list = useHomeCategoriesContext();
 
   const sortedList = list.filter((category) => {
-    const collection = MineralsData.filter(({ categories }) =>
+    const collection = items.filter(({ categories }) =>
       categories.includes(category.id),
     );
 
