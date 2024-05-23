@@ -12,6 +12,7 @@ export const Card = ({ title, img, path }: Props) => {
     <Link href={path}>
       <div className='w-full h-full bg-[--element] shadow-base rounded-2xl flex-shrink-0 flex flex-col hover:scale-[1.02] hover:shadow-hover active:scale-[0.98] active:shadow-none relative transition-all justify-end'>
         <Image
+          draggable={false}
           alt={title}
           src={img}
           width={200}

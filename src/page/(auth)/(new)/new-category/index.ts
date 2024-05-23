@@ -1,0 +1,1 @@
+export { NewCategoryPage } from './ui';

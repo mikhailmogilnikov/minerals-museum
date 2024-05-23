@@ -12,12 +12,16 @@ type Props = {
   isExpanded: boolean;
   setIsExpanded: (state: boolean) => void;
   model: string;
+  disableControls?: boolean;
+  resizeScale?: number;
 };
 
 export const ThreeModelViewer = ({
   isExpanded,
   setIsExpanded,
   model,
+  disableControls,
+  resizeScale,
 }: Props) => {
   const { progress } = useProgress();
   const [autoRotateStore, setAutoRotateStore] = useLocalStorage(
@@ -74,8 +78,11 @@ export const ThreeModelViewer = ({
           animate={isAnimating ? 'animating' : 'static'}
           className='w-full h-full flex justify-center items-center'
         >
-          <Canvas frameloop={autoRotate ? 'always' : 'demand'}>
-            <Resize scale={4}>
+          <Canvas
+            gl={{ preserveDrawingBuffer: true }}
+            frameloop={autoRotate ? 'always' : 'demand'}
+          >
+            <Resize scale={resizeScale || 4}>
               <Center>
                 <Model modelPath={model} />
               </Center>
@@ -91,11 +98,13 @@ export const ThreeModelViewer = ({
         </m.div>
       </Suspense>
 
-      <ThreeControls
-        isAutoRotate={autoRotate as boolean}
-        isFullscreen={isExpanded}
-        handleClickControl={handleClickControl}
-      />
+      {!disableControls && (
+        <ThreeControls
+          isAutoRotate={autoRotate as boolean}
+          isFullscreen={isExpanded}
+          handleClickControl={handleClickControl}
+        />
+      )}
     </>
   );
 };

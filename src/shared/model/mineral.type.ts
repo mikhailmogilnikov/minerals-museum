@@ -9,6 +9,7 @@ export interface MineralType {
 }
 
 export type SpecType = {
+  id?: number;
   title: string;
   content: string;
 };
