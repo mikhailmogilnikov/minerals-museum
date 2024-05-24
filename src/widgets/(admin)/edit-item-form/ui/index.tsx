@@ -3,7 +3,7 @@
 import { Button } from '@nextui-org/button';
 import { useRouter } from 'next/navigation';
 import { FormEventHandler, useState } from 'react';
-import { PiFloppyDiskBold } from 'react-icons/pi';
+import { PiFloppyDiskBold, PiTrashBold } from 'react-icons/pi';
 import { useItems } from '@/shared/lib/providers/items-provider';
 import { SpecType } from '@/shared/model/mineral.type';
 import { CardPreview } from '@/shared/ui/(inputs)/card-preview';
@@ -60,16 +60,26 @@ export const EditItemForm = ({ itemId }: Props) => {
         setValue={setCharacteristics}
       />
       <InputCategories value={categories} setValue={setCategories} />
-      <Button
-        type='submit'
-        radius='full'
-        size='lg'
-        color='primary'
-        className='font-medium md:w-fit'
-      >
-        <PiFloppyDiskBold size={18} />
-        Сохранить изменения
-      </Button>
+      <div className='w-full flex flex-col md:flex-row gap-4'>
+        <Button
+          type='submit'
+          radius='full'
+          size='lg'
+          color='primary'
+          className='font-medium md:w-fit'
+        >
+          <PiFloppyDiskBold size={18} />
+          Сохранить изменения
+        </Button>
+        <Button
+          radius='full'
+          size='lg'
+          className='font-medium md:w-fit text-danger'
+        >
+          <PiTrashBold size={18} />
+          Удалить экспонат
+        </Button>
+      </div>
     </form>
   );
 };

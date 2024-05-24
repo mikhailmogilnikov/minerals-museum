@@ -18,4 +18,10 @@ export interface CategoryType {
   id: number;
   name: string;
   description: string;
+  group?: number;
+}
+
+export interface GroupType {
+  id: number;
+  name: string;
 }

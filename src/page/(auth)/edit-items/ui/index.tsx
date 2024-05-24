@@ -14,7 +14,8 @@ export const EditItemsPage = () => {
 
   useEffect(() => {
     if (items.length > 0) {
-      setItemsList(items.reverse());
+      const itemsCopy = [...items];
+      setItemsList(itemsCopy.reverse());
     }
   }, [items]);
 
