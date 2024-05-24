@@ -1,7 +1,8 @@
 'use client';
 
 import { Button } from '@nextui-org/button';
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { FormEventHandler, useState } from 'react';
 import { PiFloppyDiskBold } from 'react-icons/pi';
 import { useItems } from '@/shared/lib/providers/items-provider';
 import { SpecType } from '@/shared/model/mineral.type';
@@ -18,6 +19,7 @@ type Props = {
 
 export const EditItemForm = ({ itemId }: Props) => {
   const items = useItems();
+  const router = useRouter();
 
   const currentItem = items.find(({ id }) => id === Number(itemId));
 
@@ -34,7 +36,10 @@ export const EditItemForm = ({ itemId }: Props) => {
   const [model, setModel] = useState<File | string>(currentItem?.model || '');
   const [image, setImage] = useState<File | string>(currentItem?.img || '');
 
-  const handleSubmit = () => {};
+  const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    router.push('/admin');
+  };
 
   return (
     <form

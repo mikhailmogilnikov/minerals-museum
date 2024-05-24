@@ -45,7 +45,7 @@ export const InputCategories = memo(({ value, setValue }: Props) => {
       <p className='font-medium opacity-50'>Категории</p>
       <Autocomplete
         size='lg'
-        placeholder='Начните ввод для поиска по категориям'
+        placeholder='Поиск по категориям'
         selectedKey={null}
         aria-label='Выберите категории'
         defaultItems={selectableCategories}

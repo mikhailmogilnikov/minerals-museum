@@ -1,7 +1,8 @@
 'use client';
 
 import { Button } from '@nextui-org/button';
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { FormEventHandler, useState } from 'react';
 import { PiPlusBold } from 'react-icons/pi';
 import { SpecType } from '@/shared/model/mineral.type';
 import { CardPreview } from '@/shared/ui/(inputs)/card-preview';
@@ -12,6 +13,8 @@ import { InputThreeModel } from '@/shared/ui/(inputs)/three-model';
 import { InputTitle } from '@/shared/ui/(inputs)/title';
 
 export const NewItemForm = () => {
+  const router = useRouter();
+
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [characteristics, setCharacteristics] = useState<SpecType[]>([]);
@@ -19,7 +22,10 @@ export const NewItemForm = () => {
   const [model, setModel] = useState<File>();
   const [image, setImage] = useState<File>();
 
-  const handleSubmit = () => {};
+  const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    router.push('/admin');
+  };
 
   return (
     <form

@@ -11,7 +11,7 @@ export const CardPreview = memo(({ image, title }: Props) => {
     <div className='w-full flex flex-col gap-4 items-center '>
       <p className='text-2xl font-semibold mb-4'>Предпросмотр карточки</p>
       <div className='w-72 aspect-[3/4] relative'>
-        <div className='absolute w-52 h-52 z-10 rounded-full border-4 border-dashed border-white/20 top-10 left-10' />
+        <div className='absolute w-52 h-52 z-10 rounded-full border-4 border-dotted border-black/20 dark:border-white/20 top-10 left-10' />
         <Card
           title={title}
           img={typeof image === 'string' ? image : URL.createObjectURL(image)}

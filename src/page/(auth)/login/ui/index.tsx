@@ -27,6 +27,7 @@ export const LoginPage = () => {
           type='name'
           placeholder='Логин'
           value={login}
+          classNames={{ inputWrapper: '!bg-default' }}
           onChange={(e) => setLogin(e.target.value)}
         />
         <Input
@@ -34,6 +35,7 @@ export const LoginPage = () => {
           type='password'
           placeholder='Пароль'
           value={password}
+          classNames={{ inputWrapper: '!bg-default' }}
           onChange={(e) => setPassword(e.target.value)}
         />
         <Button

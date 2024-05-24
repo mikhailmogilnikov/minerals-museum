@@ -36,7 +36,7 @@ export const MenuControls = ({ handleClose }: Props) => {
         onPress={() => handleClose()}
         href='/login'
         size='lg'
-        className='w-full mb-10'
+        className='w-full mb-10 font-medium shadow-base'
       >
         Войти
       </Button>

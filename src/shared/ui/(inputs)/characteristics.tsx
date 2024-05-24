@@ -1,4 +1,5 @@
 import { Input } from '@nextui-org/input';
+import { LayoutGroup, m } from 'framer-motion';
 import { ChangeEventHandler, memo, useState } from 'react';
 import { SpecType } from '@/shared/model/mineral.type';
 
@@ -70,15 +71,44 @@ export const InputCharacterisics = memo(({ value, setValue }: Props) => {
   return (
     <div className='w-full flex flex-col gap-4'>
       <p className='font-medium opacity-50'>Характеристики</p>
-      {value.map(({ id, title, content }) => (
-        <div key={id} className='w-full flex gap-2 items-center'>
+      <LayoutGroup>
+        {value.map(({ id, title, content }) => (
+          <m.div
+            initial={{ x: 100 }}
+            animate={{ x: 0 }}
+            layout
+            key={id}
+            className='w-full flex gap-2 items-center'
+          >
+            <Input
+              id={`${id}_${title}`}
+              autoFocus
+              size='lg'
+              placeholder='Заголовок'
+              value={title}
+              onChange={handleChangeTitle}
+              classNames={{
+                inputWrapper: '!bg-default',
+                base: 'w-2/5 flex-shrink-0',
+              }}
+            />
+            :
+            <Input
+              id={`${id}_${content}`}
+              size='lg'
+              value={content}
+              onChange={handleChangeContent}
+              placeholder='Значение'
+              classNames={{ inputWrapper: '!bg-default' }}
+            />
+          </m.div>
+        ))}
+        <m.div layout className='w-full flex gap-2 items-center'>
           <Input
-            id={`${id}_${title}`}
-            autoFocus
             size='lg'
             placeholder='Заголовок'
-            value={title}
-            onChange={handleChangeTitle}
+            onChange={handleCreate}
+            value=''
             classNames={{
               inputWrapper: '!bg-default',
               base: 'w-2/5 flex-shrink-0',
@@ -86,34 +116,13 @@ export const InputCharacterisics = memo(({ value, setValue }: Props) => {
           />
           :
           <Input
-            id={`${id}_${content}`}
+            isDisabled
             size='lg'
-            value={content}
-            onChange={handleChangeContent}
             placeholder='Значение'
             classNames={{ inputWrapper: '!bg-default' }}
           />
-        </div>
-      ))}
-      <div className='w-full flex gap-2 items-center'>
-        <Input
-          size='lg'
-          placeholder='Заголовок'
-          onChange={handleCreate}
-          value=''
-          classNames={{
-            inputWrapper: '!bg-default',
-            base: 'w-2/5 flex-shrink-0',
-          }}
-        />
-        :
-        <Input
-          isDisabled
-          size='lg'
-          placeholder='Значение'
-          classNames={{ inputWrapper: '!bg-default' }}
-        />
-      </div>
+        </m.div>
+      </LayoutGroup>
     </div>
   );
 });
