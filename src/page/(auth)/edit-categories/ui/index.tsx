@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@nextui-org/button';
+import Link from 'next/link';
 import { PiFolderBold, PiPlusBold } from 'react-icons/pi';
 import { GroupList } from '@/widgets/group-list';
 import { useCategories } from '@/shared/lib/providers/categories-provider';
@@ -19,6 +20,8 @@ export const EditCategoriesPage = () => {
     <div className='w-full flex flex-col gap-12'>
       <div className='w-full flex flex-col md:flex-row gap-4'>
         <Button
+          as={Link}
+          href='/admin/new/category'
           size='lg'
           color='primary'
           radius='full'

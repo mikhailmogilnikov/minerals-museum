@@ -1,3 +1,5 @@
+import { EditCategoryForm } from '@/widgets/(admin)/edit-category-form';
+
 type Props = { categoryId: string };
 
 export const EditCategoryPage = ({ categoryId }: Props) => {
@@ -8,6 +10,7 @@ export const EditCategoryPage = ({ categoryId }: Props) => {
           Редактировать категорию
         </h1>
       </div>
+      <EditCategoryForm categoryId={categoryId} />
     </main>
   );
 };

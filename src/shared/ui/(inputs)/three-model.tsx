@@ -66,7 +66,10 @@ export const InputThreeModel = memo(
 
     return (
       <div className='w-full flex flex-col gap-4'>
-        <p className='font-medium opacity-50'>3D модель (.glb)</p>
+        <div className='w-full flex gap-2 items-center'>
+          <p className='font-medium opacity-50'>3D модель (.glb)</p>
+          <div className='w-2 h-2 rounded-full bg-danger shadow-2xl shadow-red-600 mt-[2px]' />
+        </div>
         {model && (
           <div className='w-24 h-fit'>
             <ChangeTheme />
