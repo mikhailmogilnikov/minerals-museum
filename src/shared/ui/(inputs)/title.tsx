@@ -17,7 +17,7 @@ export const InputTitle = memo(({ value, setValue }: Props) => {
       <Input
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        placeholder='Название экспоната'
+        placeholder='Введите название'
         size='lg'
         classNames={{ inputWrapper: '!bg-default' }}
       />

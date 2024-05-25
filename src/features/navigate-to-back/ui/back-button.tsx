@@ -36,7 +36,7 @@ export const NavigateBackButton = () => {
           }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className='backdrop-blur-2xl bg-default/70 shadow-base fixed flex gap-2 items-center top-4 left-4 xl:top-10 xl:left-10 rounded-full pl-2 pr-4 py-1 z-40 font-medium text-md md:text-lg'
+          className='backdrop-blur-2xl bg-default/70 shadow-base fixed flex gap-2 items-center top-4 left-4 xl:top-10 xl:left-10 rounded-full pl-2 pr-4 py-1 z-50 font-medium text-md md:text-lg'
           onClick={handleClick}
         >
           <PiCaretLeftBold className='w-auto h-1/2' />

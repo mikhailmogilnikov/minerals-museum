@@ -1,0 +1,1 @@
+export { NewGroupPage } from './ui';

@@ -1,50 +1,52 @@
 'use client';
 
-import Link from 'next/link';
-import { PiCaretRightBold } from 'react-icons/pi';
-import { useClientTranslation } from '@/shared/i18n/use-client-translation';
+import { GroupList } from '@/widgets/group-list';
 import { useCategories } from '@/shared/lib/providers/categories-provider';
+import { useGroups } from '@/shared/lib/providers/groups-provider';
 import { useItems } from '@/shared/lib/providers/items-provider';
+import { CategoryCard } from '@/shared/ui/card';
 
 type Props = {
   lng: string;
 };
 
 export const CategoriesPage = ({ lng }: Props) => {
-  const { t } = useClientTranslation(lng);
+  const groups = useGroups();
   const categories = useCategories();
   const items = useItems();
 
-  const sortedCollection = categories.sort((a, b) =>
-    a.name.localeCompare(b.name),
+  const filteredGroups = groups
+    .filter(({ id }) => categories.some((cat) => cat.group === id))
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  const restCategories = categories.filter(
+    ({ group }) => typeof group === 'undefined',
   );
 
-  return (
-    <ul className='w-full grid md:grid-cols-2 xl:grid-cols-3 gap-4 lg:gap-6'>
-      {sortedCollection.map(({ id, name }) => {
-        const collection = items.filter(
-          ({ categories: collectionCategories }) =>
-            collectionCategories.includes(Number(id)),
-        );
+  const filteredRestCategories = restCategories
+    .filter((cat) =>
+      items.some(({ categories: currCats }) => currCats.includes(cat.id)),
+    )
+    .sort((a, b) => a.name.localeCompare(b.name));
 
-        return (
-          collection.length > 0 && (
-            <Link key={id} href={`/category/${id}`}>
-              <li className='w-full h-20 bg-default shadow-base p-4 rounded-[20px] hover:scale-[1.02] hover:shadow-hover active:scale-[0.98] active:shadow-none transition-all'>
-                <div className='w-full flex justify-between items-center'>
-                  <div className='flex flex-col h-full justify-between'>
-                    <h4 className='font-semibold'>{name}</h4>
-                    <p className='opacity-50'>
-                      {t('exhibits.t', { count: collection.length })}
-                    </p>
-                  </div>
-                  <PiCaretRightBold size={24} className='opacity-50' />
-                </div>
-              </li>
-            </Link>
-          )
-        );
-      })}
-    </ul>
+  return (
+    <div className='w-full flex flex-col gap-16'>
+      {filteredGroups.map((group) => (
+        <GroupList key={group.id} group={group} hideEmpty />
+      ))}
+
+      <div className='w-full flex flex-col gap-8'>
+        <h5 className='text-2xl lg:text-4xl font-semibold'>
+          Остальные категории
+        </h5>
+        <div className='w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-8'>
+          {filteredRestCategories.map(({ id, name }) => (
+            <div className='w-full aspect-[3/4] flex-shrink-0'>
+              <CategoryCard id={id} name={name} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };

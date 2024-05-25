@@ -30,14 +30,20 @@ export const EditCategoriesPage = () => {
           <PiPlusBold size={18} />
           Добавить категорию
         </Button>
-        <Button size='lg' radius='full' className='md:w-fit font-medium'>
+        <Button
+          as={Link}
+          href='/admin/new/group'
+          size='lg'
+          radius='full'
+          className='md:w-fit font-medium'
+        >
           <PiFolderBold size={18} />
           Создать группу
         </Button>
       </div>
 
       {groups.map((group) => (
-        <GroupList key={group.id} group={group} />
+        <GroupList key={group.id} group={group} isEditable />
       ))}
 
       <div className='w-full flex flex-col gap-8'>

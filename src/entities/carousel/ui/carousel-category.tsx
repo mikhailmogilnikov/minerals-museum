@@ -15,8 +15,6 @@ type Props = {
 };
 
 export const CarouselCategory = ({ collection, className }: Props) => {
-
-
   return (
     <Swiper
       cssMode
