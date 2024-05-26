@@ -4,6 +4,7 @@ import { Button } from '@nextui-org/button';
 import { useRouter } from 'next/navigation';
 import { FormEventHandler, useState } from 'react';
 import { PiFloppyDiskBold, PiTrashBold } from 'react-icons/pi';
+import { ButtonWithConfirm } from '@/features/button-with-confirm';
 import { useGroups } from '@/shared/lib/providers/groups-provider';
 import { InputTitle } from '@/shared/ui/(inputs)/title';
 
@@ -24,6 +25,8 @@ export const EditGroupForm = ({ groupId }: Props) => {
     router.push('/admin/edit-categories');
   };
 
+  const handleDelete = () => {};
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -42,14 +45,17 @@ export const EditGroupForm = ({ groupId }: Props) => {
           <PiFloppyDiskBold size={18} />
           Сохранить изменения
         </Button>
-        <Button
+        <ButtonWithConfirm
+          icon={<PiTrashBold size={18} className='flex-shrink-0' />}
+          className='md:w-fit text-danger'
           radius='full'
-          size='lg'
-          className='font-medium md:w-fit text-danger'
+          description={`Вы действительно хотите удалить группу "${selectedCategory?.name || 'Без названия'}"? Все категории, относящиеся к ней переместятся в раздел "Без группы".`}
+          confirmColor='danger'
+          confirmTitle='Удалить'
+          actionFn={handleDelete}
         >
-          <PiTrashBold size={18} />
           Удалить группу
-        </Button>
+        </ButtonWithConfirm>
       </div>
     </form>
   );

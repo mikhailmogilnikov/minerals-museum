@@ -2,15 +2,26 @@
 
 import { Button } from '@nextui-org/button';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { PiFolderBold, PiPlusBold } from 'react-icons/pi';
 import { GroupList } from '@/widgets/group-list';
 import { useCategories } from '@/shared/lib/providers/categories-provider';
 import { useGroups } from '@/shared/lib/providers/groups-provider';
+import { GroupType } from '@/shared/model/mineral.type';
 import { CategoryCard } from '@/shared/ui/card';
 
 export const EditCategoriesPage = () => {
   const groups = useGroups();
   const categories = useCategories();
+
+  const [groupsList, setGroupsList] = useState<GroupType[]>([]);
+
+  useEffect(() => {
+    if (groups.length > 0) {
+      const itemsCopy = [...groups];
+      setGroupsList(itemsCopy.reverse());
+    }
+  }, [groups]);
 
   const restCategories = categories.filter(
     ({ group }) => typeof group === 'undefined',
@@ -42,7 +53,7 @@ export const EditCategoriesPage = () => {
         </Button>
       </div>
 
-      {groups.map((group) => (
+      {groupsList.map((group) => (
         <GroupList key={group.id} group={group} isEditable />
       ))}
 
@@ -53,7 +64,7 @@ export const EditCategoriesPage = () => {
         <div className='w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-8'>
           {restCategories.map(({ id, name }) => (
             <div className='w-full aspect-[3/4] flex-shrink-0'>
-              <CategoryCard id={id} name={name} />
+              <CategoryCard key={id} id={id} name={name} />
             </div>
           ))}
         </div>

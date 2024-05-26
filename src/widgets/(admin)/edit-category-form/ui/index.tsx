@@ -4,6 +4,7 @@ import { Button } from '@nextui-org/button';
 import { useRouter } from 'next/navigation';
 import { FormEventHandler, useEffect, useState } from 'react';
 import { PiFloppyDiskBold, PiTrashBold } from 'react-icons/pi';
+import { ButtonWithConfirm } from '@/features/button-with-confirm';
 import { useCategories } from '@/shared/lib/providers/categories-provider';
 import { useGroups } from '@/shared/lib/providers/groups-provider';
 import { InputDescription } from '@/shared/ui/(inputs)/description';
@@ -46,6 +47,8 @@ export const EditCategoryForm = ({ categoryId }: Props) => {
     router.push('/admin/edit-categories');
   };
 
+  const handleDelete = () => {};
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -72,14 +75,17 @@ export const EditCategoryForm = ({ categoryId }: Props) => {
           <PiFloppyDiskBold size={18} />
           Сохранить изменения
         </Button>
-        <Button
+        <ButtonWithConfirm
+          icon={<PiTrashBold size={18} className='flex-shrink-0' />}
+          className='md:w-fit text-danger'
           radius='full'
-          size='lg'
-          className='font-medium md:w-fit text-danger'
+          description={`Вы действительно хотите удалить категорию "${selectedCategory?.name || 'Без названия'}"? Она пропадет из списка категорий у всех экспонатов, к которым относилась.`}
+          confirmColor='danger'
+          confirmTitle='Удалить'
+          actionFn={handleDelete}
         >
-          <PiTrashBold size={18} />
           Удалить категорию
-        </Button>
+        </ButtonWithConfirm>
       </div>
     </form>
   );

@@ -1,15 +1,21 @@
-import { Button } from '@nextui-org/button';
-import { Modal, ModalContent, useDisclosure } from '@nextui-org/modal';
+/* eslint-disable @conarti/feature-sliced/layers-slices */
+
 import { useEffect, useState } from 'react';
-import { DeleteModalContent } from './modal';
+import { useLocalStorage } from 'react-use';
+import { ButtonWithConfirm } from '@/features/button-with-confirm';
 
 type Props = {
   updater: number;
 };
 
 export const CleanExploreHistoryButton = ({ updater }: Props) => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [viewedItemsIds, setViewedItemsIds] = useState([]);
+  const [__, _, deleteItems] = useLocalStorage('explore-viewed-items', []);
+
+  const handleDelete = () => {
+    deleteItems();
+    window.location.reload();
+  };
 
   useEffect(() => {
     const items = localStorage.getItem('explore-viewed-items');
@@ -18,27 +24,15 @@ export const CleanExploreHistoryButton = ({ updater }: Props) => {
   }, [updater]);
 
   return (
-    <>
-      <Button
-        size='md'
-        onPress={onOpen}
-        isDisabled={viewedItemsIds.length < 1}
-        className='font-medium w-fit'
-      >
-        Сброс просмотров
-      </Button>
-
-      <Modal
-        isOpen={isOpen}
-        onOpenChange={onOpenChange}
-        classNames={{
-          base: 'bg-[--bg] border-1 border-white/10 rounded-2xl shadow-lg',
-        }}
-      >
-        <ModalContent>
-          {(onClose) => <DeleteModalContent onClose={onClose} />}
-        </ModalContent>
-      </Modal>
-    </>
+    <ButtonWithConfirm
+      className='w-fit'
+      description=' Вы собираетесь стереть историю просмотренных карточек в режиме
+        исследования. Это действие не затронет историю просмотров экспонатов.
+        Продолжить?'
+      confirmTitle='Стереть'
+      actionFn={handleDelete}
+    >
+      Сброс просмотров ({viewedItemsIds.length})
+    </ButtonWithConfirm>
   );
 };

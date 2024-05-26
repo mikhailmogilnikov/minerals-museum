@@ -1,36 +1,36 @@
-import { Button } from '@nextui-org/button';
-import { Modal, ModalContent, useDisclosure } from '@nextui-org/modal';
+/* eslint-disable @conarti/feature-sliced/layers-slices */
+
+import { PiTrashBold } from 'react-icons/pi';
 import { useLocalStorage } from 'react-use';
-import { DeleteModalContent } from './modal';
+import { ButtonWithConfirm } from '@/features/button-with-confirm';
 
 export const CleanHistoryButton = () => {
-  const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [visitedItems] = useLocalStorage<number[]>('visited-items', []);
+  const [visitedItems, , deleteItems] = useLocalStorage<number[]>(
+    'visited-items',
+    [],
+  );
+  const [, , deleteExploreItems] = useLocalStorage('explore-viewed-items', []);
+
+  const handleDelete = () => {
+    deleteItems();
+    deleteExploreItems();
+    window.location.reload();
+  };
 
   const items = visitedItems || [];
 
   return (
-    <>
-      <Button
-        size='lg'
-        onPress={onOpen}
-        isDisabled={items.length < 1}
-        className='font-medium text-rose-600'
-      >
-        Отчистить историю просмотров ({items.length})
-      </Button>
-
-      <Modal
-        isOpen={isOpen}
-        onOpenChange={onOpenChange}
-        classNames={{
-          base: 'bg-[--bg] border-1 border-white/10 rounded-2xl shadow-lg',
-        }}
-      >
-        <ModalContent>
-          {(onClose) => <DeleteModalContent onClose={onClose} />}
-        </ModalContent>
-      </Modal>
-    </>
+    <ButtonWithConfirm
+      icon={<PiTrashBold size={18} className='flex-shrink-0' />}
+      className='w-full text-danger'
+      description='Вы собираетесь удалить всю историю просмотров. Это действие
+        распространится на изученные экспонаты и просмотренные карточки в
+        режиме исследования. Продолжить?'
+      confirmColor='danger'
+      confirmTitle='Удалить'
+      actionFn={handleDelete}
+    >
+      Отчистить историю просмотров ({items.length})
+    </ButtonWithConfirm>
   );
 };

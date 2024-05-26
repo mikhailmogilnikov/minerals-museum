@@ -4,6 +4,7 @@ import { Button } from '@nextui-org/button';
 import { useRouter } from 'next/navigation';
 import { FormEventHandler, useState } from 'react';
 import { PiFloppyDiskBold, PiTrashBold } from 'react-icons/pi';
+import { ButtonWithConfirm } from '@/features/button-with-confirm';
 import { useItems } from '@/shared/lib/providers/items-provider';
 import { SpecType } from '@/shared/model/mineral.type';
 import { CardPreview } from '@/shared/ui/(inputs)/card-preview';
@@ -41,6 +42,8 @@ export const EditItemForm = ({ itemId }: Props) => {
     router.push('/admin');
   };
 
+  const handleDelete = () => {};
+
   return (
     <form
       onSubmit={handleSubmit}
@@ -71,14 +74,17 @@ export const EditItemForm = ({ itemId }: Props) => {
           <PiFloppyDiskBold size={18} />
           Сохранить изменения
         </Button>
-        <Button
+        <ButtonWithConfirm
+          icon={<PiTrashBold size={18} className='flex-shrink-0' />}
+          className='md:w-fit text-danger'
           radius='full'
-          size='lg'
-          className='font-medium md:w-fit text-danger'
+          description={`Вы действительно хотите удалить экспонат "${currentItem?.name || 'Без названия'}"? Он так же пропадет из списка всех категорий, к которым относился.`}
+          confirmColor='danger'
+          confirmTitle='Удалить'
+          actionFn={handleDelete}
         >
-          <PiTrashBold size={18} />
           Удалить экспонат
-        </Button>
+        </ButtonWithConfirm>
       </div>
     </form>
   );
