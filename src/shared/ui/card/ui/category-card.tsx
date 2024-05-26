@@ -8,9 +8,10 @@ import { useItems } from '@/shared/lib/providers/items-provider';
 type Props = {
   id: number;
   name: string;
+  href?: string;
 };
 
-export const CategoryCard = ({ id, name }: Props) => {
+export const CategoryCard = ({ id, name, href = '/category' }: Props) => {
   const router = useRouter();
   const { t } = useClientTranslation();
   const items = useItems();
@@ -22,7 +23,7 @@ export const CategoryCard = ({ id, name }: Props) => {
   return (
     <button
       type='button'
-      onClick={() => router.push(`/admin/edit/category/${id}`)}
+      onClick={() => router.push(`${href}/${id}`)}
       className='w-full h-full bg-default rounded-2xl shadow-base p-4 flex flex-col gap-3 relative overflow-clip text-start items-start hover:opacity-90 active:scale-[0.98] transition-transform-opacity'
     >
       <h6 className='text-md font-medium z-50 '>{name}</h6>

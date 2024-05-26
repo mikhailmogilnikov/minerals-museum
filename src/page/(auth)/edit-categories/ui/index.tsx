@@ -54,7 +54,12 @@ export const EditCategoriesPage = () => {
       </div>
 
       {groupsList.map((group) => (
-        <GroupList key={group.id} group={group} isEditable />
+        <GroupList
+          key={group.id}
+          group={group}
+          isEditable
+          href='/admin/edit/category'
+        />
       ))}
 
       <div className='w-full flex flex-col gap-8'>

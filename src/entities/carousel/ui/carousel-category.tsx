@@ -12,9 +12,10 @@ import './styles.css';
 type Props = {
   collection: CategoryType[];
   className?: string;
+  href?: string;
 };
 
-export const CarouselCategory = ({ collection, className }: Props) => {
+export const CarouselCategory = ({ collection, className, href }: Props) => {
   return (
     <Swiper
       cssMode
@@ -29,7 +30,7 @@ export const CarouselCategory = ({ collection, className }: Props) => {
         return (
           <SwiperSlide key={id} className='w-56 h-72 flex-shrink-0'>
             <div className='w-40 sm:w-48 aspect-[3/4] md:w-56 flex-shrink-0'>
-              <CategoryCard id={id} name={name} />
+              <CategoryCard id={id} name={name} href={href} />
             </div>
           </SwiperSlide>
         );

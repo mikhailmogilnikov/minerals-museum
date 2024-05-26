@@ -10,12 +10,14 @@ type Props = {
   group: GroupType;
   isEditable?: boolean;
   hideEmpty?: boolean;
+  href?: string;
 };
 
 export const GroupList = ({
   group,
   isEditable = false,
   hideEmpty = false,
+  href,
 }: Props) => {
   const categories = useCategories();
   const items = useItems();
@@ -59,7 +61,11 @@ export const GroupList = ({
       </div>
 
       {sortedCollection.length > 0 ? (
-        <CarouselCategory collection={sortedCollection} className='category' />
+        <CarouselCategory
+          collection={sortedCollection}
+          className='category'
+          href={href}
+        />
       ) : (
         <div className='w-full max-w-96 rounded-2xl shadow-base flex flex-row gap-2 bg-default ml-4 sm:ml-6 xl:ml-24 p-4 mt-4'>
           <p className='font-medium opacity-70'>
