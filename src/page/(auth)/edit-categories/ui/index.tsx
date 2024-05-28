@@ -69,7 +69,12 @@ export const EditCategoriesPage = () => {
         <div className='w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-8'>
           {restCategories.map(({ id, name }) => (
             <div className='w-full aspect-[3/4] flex-shrink-0'>
-              <CategoryCard key={id} id={id} name={name} />
+              <CategoryCard
+                key={id}
+                id={id}
+                name={name}
+                href='/admin/edit/category'
+              />
             </div>
           ))}
         </div>
