@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { BASE_URL } from '@/shared/config';
 
 type Props = {
   title: string;
@@ -14,7 +15,7 @@ export const Card = ({ title, img, path }: Props) => {
         <Image
           draggable={false}
           alt={title}
-          src={img}
+          src={`${BASE_URL}${img}`}
           width={200}
           height={200}
           className='w-full aspect-square absolute top-0'

@@ -6,6 +6,7 @@ import { m } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 import { useLocalStorage, useMedia } from 'react-use';
+import { BASE_URL } from '@/shared/config';
 import { useItems } from '@/shared/lib/providers/items-provider';
 import { MineralType } from '@/shared/model/mineral.type';
 import { ThreeViewerAnimationVariants } from '../config/animation-variants';
@@ -54,7 +55,7 @@ export const MineralPage = ({ mineralId }: Props) => {
         <DynamicThreeModelViewer
           isExpanded={isExpanded}
           setIsExpanded={setIsExpanded}
-          model={mineral?.model as string}
+          model={`${BASE_URL}${mineral?.model}` as string}
         />
       </m.div>
 

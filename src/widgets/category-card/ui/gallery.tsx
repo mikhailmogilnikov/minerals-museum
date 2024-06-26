@@ -4,6 +4,7 @@ import { AnimatePresence, m } from 'framer-motion';
 import Image from 'next/image';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { BASE_URL } from '@/shared/config';
 import { CategoryType, MineralType } from '@/shared/model/mineral.type';
 import 'swiper/css';
 
@@ -40,7 +41,7 @@ export const CardGallery = ({ category, collection }: Props) => {
                     className='flex items-center justify-center'
                   >
                     <Image
-                      src={mineral.img}
+                      src={`${BASE_URL}${mineral.img}`}
                       alt={mineral.name}
                       width={200}
                       height={200}
@@ -49,7 +50,7 @@ export const CardGallery = ({ category, collection }: Props) => {
                   </m.div>
                 ) : (
                   <Image
-                    src={mineral.img}
+                    src={`${BASE_URL}${mineral.img}`}
                     alt={mineral.name}
                     width={200}
                     height={200}

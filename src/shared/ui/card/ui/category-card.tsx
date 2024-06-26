@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { BASE_URL } from '@/shared/config';
 import { useClientTranslation } from '@/shared/i18n/use-client-translation';
 import { useItems } from '@/shared/lib/providers/items-provider';
 
@@ -35,7 +36,7 @@ export const CategoryCard = ({ id, name, href = '/category' }: Props) => {
       {collection.length > 0 && (
         <div className='w-[80%] aspect-square absolute left-[10%] max-sm:-bottom-[10%] -bottom-[4%] z-20'>
           <Image
-            src={collection[0].img}
+            src={`${BASE_URL}${collection[0].img}`}
             fill
             alt={collection[0].name}
             className='-z-10'
@@ -44,13 +45,17 @@ export const CategoryCard = ({ id, name, href = '/category' }: Props) => {
       )}
       {collection.length > 1 && (
         <div className='w-[70%] aspect-square absolute left-[50%] max-sm:bottom-[5%] bottom-[15%]  z-10'>
-          <Image src={collection[1].img} fill alt={collection[1].name} />
+          <Image
+            src={`${BASE_URL}${collection[1].img}`}
+            fill
+            alt={collection[1].name}
+          />
         </div>
       )}
       {collection.length > 2 && (
         <div className='w-[70%] aspect-square absolute -left-[30%] max-sm:bottom-0 bottom-[10%] z-30'>
           <Image
-            src={collection[2].img}
+            src={`${BASE_URL}${collection[2].img}`}
             fill
             alt={collection[2].name}
             className='snap-start flex-shrink-0 object-cover h-full z-10'

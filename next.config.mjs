@@ -4,10 +4,10 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: '1.downloader.disk.yandex.ru',
-        port: '',
-        pathname: '/preview/**',
+        protocol: 'http',
+        hostname: '213.208.190.34',
+        port: '8081',
+        pathname: '/**',
       },
     ],
   },

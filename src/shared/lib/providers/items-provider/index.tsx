@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import axios from 'axios';
 import { createContext, useContext, useEffect, useState } from 'react';
-import { MineralsData } from '@/shared/api/minerals-data';
+import { API_URL } from '@/shared/config';
 import { MineralType } from '@/shared/model/mineral.type';
 
 const ItemsContext = createContext<MineralType[]>([]);
@@ -13,8 +14,12 @@ export const ItemsProvider = ({ children }: Props) => {
   const [list, setList] = useState<MineralType[]>([]);
 
   useEffect(() => {
-    const response = MineralsData;
-    setList(response);
+    const getItems = async () => {
+      const response = await axios.get<MineralType[]>(`${API_URL}/items/`);
+      setList(response.data);
+    };
+
+    getItems();
   }, []);
 
   return <ItemsContext.Provider value={list}>{children}</ItemsContext.Provider>;

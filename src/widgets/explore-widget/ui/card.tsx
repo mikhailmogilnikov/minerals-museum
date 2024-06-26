@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { PiArrowCircleRightBold, PiCheckBold } from 'react-icons/pi';
 import { useLocalStorage } from 'react-use';
 import { DraggableCard } from '@/entities/draggable-card';
+import { BASE_URL } from '@/shared/config';
 import { MineralType } from '@/shared/model/mineral.type';
 
 type Props = {
@@ -68,7 +69,7 @@ export const ExploreCard = ({
         <Image
           draggable={false}
           alt={name}
-          src={img}
+          src={`${BASE_URL}${img}`}
           width={200}
           height={200}
           className='w-full aspect-square absolute top-0'
