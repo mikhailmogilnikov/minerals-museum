@@ -13,7 +13,7 @@ export default function LoadLayout({ children }: { children: ReactNode }) {
 
   if (items.length === 0 || categories.length === 0 || groups.length === 0)
     return (
-      <div className='absolute top-0 left-0 w-dvw h-dvh z-50 bg-default flex items-center justify-center'>
+      <div className='absolute top-0 left-0 w-dvw h-dvh z-[100] bg-[--bg] flex items-center justify-center'>
         <MgriLogo className='animate-pulse mb-4' size={70} />
       </div>
     );
