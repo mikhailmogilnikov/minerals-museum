@@ -7,7 +7,7 @@ Museum with interactive 3D minerals.
 ### Technologies:
 - TypeScript
 - Next.js 14 (App Router)
-- React Three Fiber
+- React Three Fiber 
 - Redux Toolkit
 - Tailwind CSS
 - Next UI
